@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../view/card_screen.dart';
 import '../view/home_screen.dart';
 
 class ControlViewModel extends GetxController{
@@ -21,7 +22,7 @@ class ControlViewModel extends GetxController{
           _currentScreen= HomeScreen();
         break;
       case 1 :
-       _currentScreen = HomeScreen();
+       _currentScreen = CardScreen();
         break;
 
       case 2 :
