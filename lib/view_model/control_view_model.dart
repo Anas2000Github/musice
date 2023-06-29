@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../view/card_screen.dart';
 import '../view/home_screen.dart';
+import '../view/order_details_screen.dart';
 
 class ControlViewModel extends GetxController{
 
@@ -26,7 +27,7 @@ class ControlViewModel extends GetxController{
         break;
 
       case 2 :
-        _currentScreen = HomeScreen();
+        _currentScreen = OrderDetailsScreen();
         break;
         case 3 :
         _currentScreen = HomeScreen();

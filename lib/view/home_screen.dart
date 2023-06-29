@@ -27,45 +27,45 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      child: Row(children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Image.asset('assets/images/Avatar.png'),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              width: Get.width*.29,
-                              child: CustomText(
-                                text: 'Hello'.tr,
-                                fontsize: 14,
-                                fontWeight: FontWeight.w400,
-                                color: Constants.fontBlackColor,
-                              ),
-                            ),
-                            Container(
-                              child: CustomText(
-                                text: 'Anas Abedallah'.tr,
-                                fontsize: 17,
-                                fontWeight: FontWeight.w400,
-                                color: Constants.fontColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],)
-                      ,),
-                    Container(
-                      child:SvgPicture.asset('assets/svg/menu-scale.svg'),)
+                     Expanded(
+
+                         child: Row(children: [
+                           Padding(
+                             padding: const EdgeInsets.all(5.0),
+                             child: Image.asset('assets/images/Avatar.png'),
+                           ),
+                           Column(
+                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                             children: [
+                               SizedBox(
+                                 width: Get.width*.29,
+                                 child: CustomText(
+                                   text: 'Hello'.tr,
+                                   fontsize: 14,
+                                   fontWeight: FontWeight.w400,
+                                   color: Constants.fontBlackColor,
+                                 ),
+                               ),
+                               CustomText(
+                                 text: 'Anas Abdallah'.tr,
+                                 fontsize: 15,
+                                 fontWeight: FontWeight.w400,
+                                 color: Constants.fontColor,
+                               ),
+                             ],
+                           ),
+                         ],
+                         ),
+                       ),
+
+                           SvgPicture.asset('assets/svg/menu-scale.svg')
 
                   ], ),
               ),
               Stack(
                   children:[
                     Container(
-                      margin: EdgeInsets.only(bottom: 10,top: 25),
+                      margin: const EdgeInsets.only(bottom: 10,top: 25),
                       width: Get.width*.9,
                       height: Get.height*.29,
                       child: Card(
@@ -76,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                         elevation: 5,
                         child: Container(
                           alignment: Alignment.topLeft,
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
@@ -86,7 +86,7 @@ class HomeScreen extends StatelessWidget {
                                         child: SvgPicture.asset('assets/svg/circle.svg',color: Colors.amber,)),
                                     10.height,
                                     RotationTransition(
-                                      turns:  AlwaysStoppedAnimation(-7 / 360),
+                                      turns:  const AlwaysStoppedAnimation(-7 / 360),
                                       child:  CustomText(
                                         text: 'Beat Always\nHeat'.tr,
                                         fontsize: 23,
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                         // ));
                       },
                       child: Stack(children: [
-                          Container(
+                          SizedBox(
                               width: Get.width * .25,
                               height: Get.height * .12,
                               child:ClipRRect(
@@ -138,7 +138,7 @@ class HomeScreen extends StatelessWidget {
                                   color: Colors.black.withOpacity(.48),
                                 borderRadius: BorderRadius.circular(8.0)
                               ),
-                              padding: EdgeInsets.only(bottom: 15),
+                              padding: EdgeInsets.only(bottom: 5),
                               alignment: Alignment.bottomCenter,
                               child: CustomText(
                                 text: 'Camera',
@@ -175,7 +175,7 @@ class HomeScreen extends StatelessWidget {
                                 width: Get.width*.43,
                                 height: Get.height * .3,
                                 color: Constants.backGroundColor,
-                                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 6),
+                                padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 6),
                                 child: Column(
                                   children: [
                                     Stack(
@@ -189,7 +189,7 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                             padding: EdgeInsets.symmetric(horizontal: 20),
                                                 child:Image.asset('assets/images/headphones.png',fit: BoxFit.fill,
-                                                opacity: AlwaysStoppedAnimation(1),)),
+                                                opacity: const AlwaysStoppedAnimation(.9),)),
                                         Container(
                                           height: 26,
                                           width: 26,
@@ -275,6 +275,7 @@ class HomeScreen extends StatelessWidget {
                   text: 'Special For Gaming',
               ),
               Container(
+                width: Get.size.width,
                 height: Get.height * .34,
                 padding: EdgeInsets.symmetric(horizontal: 5),
                 child: ListView.separated(
@@ -292,89 +293,99 @@ class HomeScreen extends StatelessWidget {
                           Card(
                             elevation:10,
                             child: Container(
-                              width: Get.width*.8,
-                              height: Get.height * .1,
+                              width: Get.size.width*.85,
+                              height: Get.height * .12,
                               color: Constants.backGroundColor,
-                              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 6),
+                              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  Container(
-                                      height: Get.height * .17,
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey[300],
-                                          borderRadius: BorderRadius.circular(20)
-                                      ),
-                                      padding: EdgeInsets.symmetric(horizontal: 20),
-                                      child:Image.asset('assets/images/headphones.png',fit: BoxFit.fill,
-                                        opacity: AlwaysStoppedAnimation(1),)),
-                                  Container(
-                                    width: Get.width*.45,
+                                   Expanded(
+                                     child: FittedBox(
+                                       child: Container(
+                                          height: Get.height * .17,
+                                          decoration: BoxDecoration(
+                                              color: Colors.grey[300],
+                                              borderRadius: BorderRadius.circular(20)
+                                          ),
+                                          padding: EdgeInsets.symmetric(horizontal: 10),
+                                          child:Image.asset('assets/images/headphones.png',fit: BoxFit.fill,
+                                            opacity: const AlwaysStoppedAnimation(.9),)),
+                                     ),
+                                   ),
+                                  SizedBox(
+                                    width: Get.width*.5,
                                     height: Get.height * .1,
                                     child: Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                          CustomText(
-                                            alignment: Alignment.topLeft,
-                                            text: 'Game Controller',
-                                            color: Constants.fontColor,
-                                            fontWeight: FontWeight.w600,
-                                            fontsize: 15,
+                                      Expanded(
+                                        child: FittedBox(
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            children: [
+                                              CustomText(
+                                                alignment: Alignment.topLeft,
+                                                text: 'Game Controller',
+                                                color: Constants.fontColor,
+                                                fontWeight: FontWeight.w600,
+                                                fontsize: 15,
+                                              ),
+                                              CustomText(
+                                                alignment: Alignment.topLeft,
+                                                text: 'Fast Work',
+                                                fontWeight: FontWeight.w400,
+                                                fontsize: 13,
+                                              ),
+                                              CustomText(
+                                                alignment: Alignment.topLeft,
+                                                text: '\$50.00',
+                                                color: Constants.fontColor,
+                                                fontWeight: FontWeight.w400,
+                                                fontsize: 15,
+                                              ),
+                                            ],
                                           ),
-                                          CustomText(
-                                            alignment: Alignment.topLeft,
-                                            text: 'Fast Work',
-                                            fontWeight: FontWeight.w400,
-                                            fontsize: 13,
-                                          ),    CustomText(
-                                            alignment: Alignment.topLeft,
-                                            text: '\$50.00',
-                                            color: Constants.fontColor,
-                                            fontWeight: FontWeight.w400,
-                                            fontsize: 15,
-                                          ),
-                                        ],
+                                        ),
                                       ),
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Container(
-                                            height: 26,
-                                            width: 26,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                color: Colors.grey[300],
-                                                borderRadius: BorderRadius.circular(10)
+                                      Expanded(
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Container(
+                                              height: Get.width*.05,
+                                              width: Get.width*.05,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey[300],
+                                                  borderRadius: BorderRadius.circular(10)
+                                              ),
+                                              child: Icon(Icons.favorite,
+                                                color: Colors.red,size: 17,),
                                             ),
-                                            child: Icon(Icons.favorite,
-                                              color: Colors.red,size: 18,),
-                                          ),
-                                          Container(
-                                            width: 35,
-                                            height: 17,
-                                            padding: EdgeInsets.symmetric(horizontal: 3),
-                                            decoration: BoxDecoration(
-                                                color: Colors.blueGrey[50],
-                                                borderRadius: BorderRadius.circular(30)
-                                            ),
-                                            child:  Row(
-                                              children: [
-                                                Icon(Icons.star,color: Colors.amber,size: 12,),
-                                                CustomText(
-                                                  text: '4.9',
-                                                  fontsize: 10,
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        ],
+                                            Container(
+                                              width: 35,
+                                              height: 17,
+                                              padding: EdgeInsets.symmetric(horizontal: 3),
+                                              decoration: BoxDecoration(
+                                                  color: Colors.blueGrey[50],
+                                                  borderRadius: BorderRadius.circular(30)
+                                              ),
+                                              child:  Row(
+                                                children: [
+                                                  Icon(Icons.star,color: Colors.amber,size: 12,),
+                                                  CustomText(
+                                                    text: '4.9',
+                                                    fontsize: 10,
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ],
                                   ),),
-
                                 ],
                               ),
                             ),

@@ -25,6 +25,7 @@ dependencies:
 #  path: ^1.8.2
 #  shared_preferences: ^2.1.0
   flutter_svg: ^1.1.6
+  custom_check_box: ^0.0.4
 #  another_stepper: ^1.2.2
 #  image_picker: ^0.8.7+4
 #  google_fonts: ^4.0.4

@@ -26,73 +26,29 @@ class ControlView extends StatelessWidget{
     return GetBuilder<ControlViewModel>(
       builder: (controller) => BottomNavigationBar(items: [
         BottomNavigationBarItem(
-            label: '',
-            icon: Column(
-              children: [
-                SvgPicture.asset("assets/svg/home.svg",fit: BoxFit.contain,width: 20,),
-                5.height,
-                Text(
-                  'Home'.tr,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            )),
+            label: 'home'.tr,
+            icon: SvgPicture.asset("assets/svg/home.svg",fit: BoxFit.contain,width: 20,)),
         BottomNavigationBarItem(
-            label: '',
-            icon: Column(
-              children: [
-                SvgPicture.asset("assets/svg/search.svg",fit: BoxFit.contain,width: 20),
-                5.height,
-                Text(
-                  'Search'.tr,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            )),
+            label: 'Search'.tr,
+            icon: SvgPicture.asset("assets/svg/search.svg",fit: BoxFit.contain,width: 20),
+            ),
         BottomNavigationBarItem(
-            label: '',
-            icon: Column(
-              children: [
-                SvgPicture.asset("assets/svg/heart.svg",fit: BoxFit.contain,width: 20),
-                5.height,
-                Text(
-                  'Wishlist'.tr,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            )),
+            label: 'Wishlist'.tr,
+            icon: SvgPicture.asset("assets/svg/heart.svg",fit: BoxFit.contain,width: 20),
+        ),
         BottomNavigationBarItem(
 
-            label: '',
-            icon: Column(
-              children: [
-                SvgPicture.asset("assets/svg/profile.svg",fit: BoxFit.contain,width: 20),
-                5.height,
-                Text(
-                  'Profile'.tr,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black,
-                  ),
+            label: 'Profile'.tr,
+            icon: SvgPicture.asset("assets/svg/profile.svg",fit: BoxFit.contain,width: 20),
                 ),
-              ],
-            )),
       ],
         elevation: 0.0,
         currentIndex: controller.navigatorValue,
         onTap: (index) {
         controller.changSelectedValue(index);},
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.black87,
         backgroundColor: Colors.grey.shade50,
+
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:custom_check_box/custom_check_box.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -7,20 +8,47 @@ import 'package:project_ecommerce/view_model/check_out_view_model.dart';
 import 'package:project_ecommerce/widgets/custom_button.dart';
 import 'package:project_ecommerce/widgets/custom_text.dart';
 
-class CardScreen extends StatelessWidget {
+import '../widgets/custom_check_box.dart';
+
+class CardScreen extends StatefulWidget {
   const CardScreen({Key? key}) : super(key: key);
+
+  @override
+  State<CardScreen> createState() => _CardScreenState();
+}
+
+class _CardScreenState extends State<CardScreen> {
+  double _value = 0.0;
+  bool isBrands1 = false;
+  bool isBrands2 = false;
+  bool isBrands3 = false;
+  bool isBrands4 = false;
+
+  bool isTage1 = false;
+  bool isTage2= false;
+  bool isTage3 = false;
+  bool isTage4 = false;
+
+  bool isColors1 = false;
+  bool isColors2 = false;
+  bool isColors3 = false;
+  bool isColors4 = false;
+  bool isColors5 = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Constants.backGroundColor,
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20,),
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
+        ),
         margin: EdgeInsets.only(top: 30),
         child: SingleChildScrollView(
           child: Column(
             children: [
-              _listBox(4, 'Brands'),
-              _listBox(4, 'Tage'),
+              listBox1('Brands'),
+              listBox2('Tage'),
               CustomText(
                 text: 'Price Range',
                 fontsize: 21,
@@ -29,16 +57,25 @@ class CardScreen extends StatelessWidget {
               ),
               10.height,
               CustomText(
-                text: '\$500',
+                text: '\$$_value',
                 fontsize: 21,
                 color: Constants.fontColor,
                 alignment: Alignment.topLeft,
               ),
               10.height,
               Slider(
-                activeColor: Constants.primaryColor,
-                  value: .5, onChanged: (value) {}),
-              _listBox(5, 'Colors'),
+                  min: 0,
+                  max: 1000,
+                  divisions: 10,
+                  activeColor: Constants.primaryColor,
+                  value: _value,
+                  onChanged: (value) {
+                    _value = value;
+                    setState(() {
+                      print(value);
+                    });
+                  }),
+              listBox3('Colors'),
               30.height,
               CustomButton.buttonStyle(
                   onPressed: () {}, text: 'Filter', paddingHorizontal: 150),
@@ -49,93 +86,221 @@ class CardScreen extends StatelessWidget {
       ),
     );
   }
-}
 
-_listBox(int indexChange, String textTile) {
-  return GetBuilder<CheckOutViewModel>(
-    init: CheckOutViewModel(),
-    builder: (controller) => Container(
-      width: Get.width * .9,
-      child: Column(
-        children: [
-          CustomText(
-            alignment: Alignment.topLeft,
-            text: textTile,
-            fontsize: 21,
-            color: Constants.fontColor,
-          ),
-          Container(
-            height: Get.height * .2,
-            alignment: Alignment.topLeft,
-            child: ListView.separated(
-              itemBuilder: (context, index) {
-                return Container(
-                  width: Get.width * .4,
-                  alignment: Alignment.topLeft,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          color:  indexChange == 4 && index == 1 ? Colors.black : Colors.white70,
-                          border: Border.all(
-                              color: indexChange == 5
-                                  ? controller.colors[index]
-                                  : Colors.black54,
-                              width: 1.5),
-                          borderRadius: BorderRadius.circular(5),
+  listBox1(String textTile) {
+    return GetBuilder<CheckOutViewModel>(
+        init: CheckOutViewModel(),
+        builder: (controller) => Container(
+            width: Get.width * .9,
+            child: Column(children: [
+                  Container(
+                    width: Get.width,
+                    height: Get.height*.25,
+                    child: ListView(
+                      children: [
+                        CustomText(
+                          alignment: Alignment.topLeft,
+                          text: textTile,
+                          fontsize: 21,
+                          color: Constants.fontColor,
                         ),
-                      ),
-                      10.width,
-                      CustomText(
-                        text: (() {
-                          if (textTile == 'Brands') {
-                            if (index == 0) {
-                              return 'Apex';
-                            } else if (index == 1) {
-                              return 'Zara';
-                            } else if (index == 2) {
-                              return 'Adidas';
-                            } else if (index == 3) {
-                              return 'Apple';
-                            }
-                          } else if (textTile == 'Tag') {
-                            if (index == 0) {
-                              return 'Laptop';
-                            } else if (index == 1) {
-                              return 'T-Shirt';
-                            } else if (index == 2) {
-                              return 'Camera';
-                            } else if (index == 3) {
-                              return 'Frog';
-                            }
-                          } else {
-                            if (index == 0) {
-                              return 'Blue';
-                            } else if (index == 1) {
-                              return 'Black';
-                            } else if (index == 2) {
-                              return 'Purple';
-                            } else if (index == 3) {
-                              return 'Red';
-                            } else {
-                              return 'Orange';
-                            }
-                          }
-                        }()),
-                        alignment: Alignment.topLeft,
-                      ),
-                    ],
+                        CustomBox.listTileStyle(
+                          color: Colors.black87,
+                            value: isBrands1,
+                            onChanged: (val){
+                              setState(() {
+
+                              });
+                              isBrands1=val;
+                            },
+                            text: 'Apex'
+                        ),
+                        CustomBox.listTileStyle(
+                          color: Colors.black87,
+                            value: isBrands2,
+                            onChanged: (val){
+                              setState(() {
+
+                              });
+                              isBrands2=val;
+                            },
+                              text: 'Zara'
+                        ),
+                        CustomBox.listTileStyle(
+                          color: Colors.black87,
+                            value: isBrands3,
+                            onChanged: (val){
+                              setState(() {
+
+                              });
+                              isBrands3=val;
+                            },
+                            text: 'Adidas'
+                        ),
+                        CustomBox.listTileStyle(
+                          color: Colors.black87,
+                            value: isBrands4,
+                            onChanged: (val){
+                              setState(() {
+
+                              });
+                              isBrands4=val;
+                            },
+                            text: 'Apple'
+                        ),
+
+                      ],
+                    ),
                   ),
-                );
-              },
-              separatorBuilder: (context, index) => 6.height,
-              itemCount: indexChange,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
+
+            ])));
+  }
+  listBox2(String textTile) {
+    return GetBuilder<CheckOutViewModel>(
+        init: CheckOutViewModel(),
+        builder: (controller) => Container(
+            width: Get.width * .9,
+            child: Column(children: [
+              Container(
+                width: Get.width,
+                height: Get.height*.25,
+                child: ListView(
+                  children: [
+                    CustomText(
+                      alignment: Alignment.topLeft,
+                      text: textTile,
+                      fontsize: 21,
+                      color: Constants.fontColor,
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.black87,
+                        value: isTage1,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isTage1=val;
+                        },
+                        text: 'Laptop'
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.black87,
+                        value: isTage2,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isTage2=val;
+                        },
+                        text: 'T-Shirt'
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.black87,
+                        value: isTage3,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isTage3=val;
+                        },
+                        text: 'Camera'
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.black87,
+                        value: isTage4,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isTage4=val;
+                        },
+                        text: 'Frog'
+                    ),
+
+                  ],
+                ),
+              ),
+
+            ])));
+  }
+  listBox3(String textTile) {
+    return GetBuilder<CheckOutViewModel>(
+        init: CheckOutViewModel(),
+        builder: (controller) => Container(
+            width: Get.width * .9,
+            child: Column(children: [
+              Container(
+                width: Get.width,
+                height: Get.height*.3,
+                child: ListView(
+                  children: [
+                    CustomText(
+                      alignment: Alignment.topLeft,
+                      text: textTile,
+                      fontsize: 21,
+                      color: Constants.fontColor,
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.blue,
+                        value: isColors1,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isColors1=val;
+                        },
+                        text: 'Blue'
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.black,
+                        value: isColors2,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isColors2=val;
+                        },
+                        text: 'Black'
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.purple,
+                        value: isColors3,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isColors3=val;
+                        },
+                        text: 'Purple'
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.red,
+                        value: isColors4,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isColors4=val;
+                        },
+                        text: 'Red'
+                    ),
+                    CustomBox.listTileStyle(
+                        color: Colors.orange,
+                        value: isColors5,
+                        onChanged: (val){
+                          setState(() {
+
+                          });
+                          isColors5=val;
+                        },
+                        text: 'Orange'
+                    ),
+
+                  ],
+                ),
+              ),
+
+            ])));
+  }
+
 }
