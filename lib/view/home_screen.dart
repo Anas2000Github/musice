@@ -9,11 +9,13 @@ import 'package:project_ecommerce/widgets/custom_text.dart';
 import '../constants.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
+   HomeScreen({Key? key}) : super(key: key);
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: const Drawer(),
       backgroundColor: Constants.backGroundColor,
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
@@ -28,7 +30,6 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                      Expanded(
-
                          child: Row(children: [
                            Padding(
                              padding: const EdgeInsets.all(5.0),
@@ -58,7 +59,11 @@ class HomeScreen extends StatelessWidget {
                          ),
                        ),
 
-                           SvgPicture.asset('assets/svg/menu-scale.svg')
+                           InkWell(
+                             onTap: (){
+                               _scaffoldKey.currentState!.openEndDrawer();
+                             },
+                               child: SvgPicture.asset('assets/svg/menu-scale.svg'))
 
                   ], ),
               ),
