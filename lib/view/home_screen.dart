@@ -259,7 +259,7 @@ class HomeScreen extends StatelessWidget {
                                           fontWeight: FontWeight.w400,
                                           fontsize: 13,
                                         ),
-                                        Icon(Icons.shopping_cart,color: Constants.fontColor,)
+                                        Icon(Icons.shopping_cart_outlined,color: Constants.fontColor,)
                                       ],
                                     ),
 

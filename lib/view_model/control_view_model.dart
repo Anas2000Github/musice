@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../view/card_screen.dart';
 import '../view/home_screen.dart';
 import '../view/order_details_screen.dart';
+import '../view/wishlist_screen.dart';
 
 class ControlViewModel extends GetxController{
 
@@ -27,10 +28,10 @@ class ControlViewModel extends GetxController{
         break;
 
       case 2 :
-        _currentScreen = OrderDetailsScreen();
+        _currentScreen = WishListScreen();
         break;
         case 3 :
-        _currentScreen = HomeScreen();
+        _currentScreen = OrderDetailsScreen();
         break;
     }
     update();
