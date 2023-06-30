@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/src/picture_provider.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/helper/sized_box_enum.dart';
@@ -13,18 +15,19 @@ class OrderDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Constants.backGroundColor,
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
-        leading: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back)),
+        leading: IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/svg/back.svg')),
       ),
       body: Container(
         width: Get.width,
         height: Get.height,
         alignment: Alignment.center,
-        margin: EdgeInsets.only(top: 50),
+
         child: SingleChildScrollView(
 
           child: Column(
@@ -40,7 +43,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   child: CustomText(text:'Hey, Jarif \nThank You For Purchase',textAlign: TextAlign.center,fontsize: 18,height: 1.5,color: Constants.fontColor,),),
               Container(
                   height: Get.height*.3,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     children: [
                        Row(
@@ -71,7 +74,7 @@ class OrderDetailsScreen extends StatelessWidget {
                        ),
                       20.height,
                       CustomButton.buttonStyle(
-                          onPressed: () {}, text: 'Filter', paddingHorizontal: 160,
+                            onPressed: () {}, text: 'Filter', paddingHorizontal: Get.width*.3,
                           colorButton: Constants.fontColor,
                       borderSize: 50),
                       10.height,
@@ -80,7 +83,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   ),),
                60.height,
                CustomButton.buttonStyle(
-                   onPressed: () {}, text: 'Continue Shaping', paddingHorizontal: 110,
+                   onPressed: () {}, text: 'Continue Shaping', paddingHorizontal: Get.width*.2,
                    colorButton: Constants.primaryColor,
                    borderSize: 50),
 

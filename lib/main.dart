@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:project_ecommerce/view/splash_screen.dart';
@@ -5,7 +7,11 @@ import 'package:project_ecommerce/view/splash_screen.dart';
 import 'helper/languages.dart';
 
 void main() {
-  runApp(const MyApp());
+
+  runApp(DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,12 +24,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       translations: Languages(),
-      locale: Locale('en', 'us'),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: SplashScreen(),
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      home: const SplashScreen(),
     );
   }
 }

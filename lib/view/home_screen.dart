@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:project_ecommerce/helper/sized_box_enum.dart';
 import 'package:project_ecommerce/widgets/custom_text.dart';
 
@@ -10,7 +8,7 @@ import '../constants.dart';
 
 class HomeScreen extends StatelessWidget {
    HomeScreen({Key? key}) : super(key: key);
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey =  GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,14 +16,14 @@ class HomeScreen extends StatelessWidget {
       endDrawer: const Drawer(),
       backgroundColor: Constants.backGroundColor,
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                 height: 50,
                 width: Get.width,
-                margin: EdgeInsets.symmetric(vertical: 20),
+                margin: const EdgeInsets.symmetric(vertical: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -118,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               Container(
                 height: Get.height * .1,
-                padding: EdgeInsets.symmetric(horizontal: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: ListView.separated(
                   itemCount: 5,
                   scrollDirection: Axis.horizontal,
@@ -143,7 +141,7 @@ class HomeScreen extends StatelessWidget {
                                   color: Colors.black.withOpacity(.48),
                                 borderRadius: BorderRadius.circular(8.0)
                               ),
-                              padding: EdgeInsets.only(bottom: 5),
+                              padding: const EdgeInsets.only(bottom: 5),
                               alignment: Alignment.bottomCenter,
                               child: CustomText(
                                 text: 'Camera',
@@ -161,7 +159,7 @@ class HomeScreen extends StatelessWidget {
                  20.height,
                  Container(
                   height: Get.height * .34,
-                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: ListView.separated(
                     itemCount: 5,
                     scrollDirection: Axis.horizontal,
@@ -192,7 +190,7 @@ class HomeScreen extends StatelessWidget {
                                               color: Colors.grey[300],
                                               borderRadius: BorderRadius.circular(20)
                                             ),
-                                            padding: EdgeInsets.symmetric(horizontal: 20),
+                                            padding: const EdgeInsets.symmetric(horizontal: 20),
                                                 child:Image.asset('assets/images/headphones.png',fit: BoxFit.fill,
                                                 opacity: const AlwaysStoppedAnimation(.9),)),
                                         Container(
@@ -231,14 +229,14 @@ class HomeScreen extends StatelessWidget {
                                         Container(
                                           width: 35,
                                           height: 17,
-                                          padding: EdgeInsets.symmetric(horizontal: 3),
+                                          padding: const EdgeInsets.symmetric(horizontal: 3),
                                           decoration: BoxDecoration(
                                               color: Colors.blueGrey[100],
                                             borderRadius: BorderRadius.circular(30)
                                           ),
                                           child:  Row(
                                             children: [
-                                              Icon(Icons.star,color: Colors.amber,size: 12,),
+                                              const Icon(Icons.star,color: Colors.amber,size: 12,),
                                               CustomText(
                                                 text: '4.9',
                                                 fontsize: 10,
@@ -259,7 +257,7 @@ class HomeScreen extends StatelessWidget {
                                           fontWeight: FontWeight.w400,
                                           fontsize: 13,
                                         ),
-                                        Icon(Icons.shopping_cart_outlined,color: Constants.fontColor,)
+                                        const Icon(Icons.shopping_cart_outlined,color: Constants.fontColor,)
                                       ],
                                     ),
 
@@ -280,9 +278,8 @@ class HomeScreen extends StatelessWidget {
                   text: 'Special For Gaming',
               ),
               Container(
-                width: Get.size.width,
-                height: Get.height * .34,
-                padding: EdgeInsets.symmetric(horizontal: 5),
+                width: Get.width,
+                height: Get.height * .35,
                 child: ListView.separated(
                   itemCount: 5,
                   scrollDirection: Axis.vertical,
@@ -298,7 +295,7 @@ class HomeScreen extends StatelessWidget {
                           Card(
                             elevation:10,
                             child: Container(
-                              width: Get.size.width*.85,
+                              width: Get.size.width*.8,
                               height: Get.height * .12,
                               color: Constants.backGroundColor,
                               padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
@@ -313,7 +310,7 @@ class HomeScreen extends StatelessWidget {
                                               color: Colors.grey[300],
                                               borderRadius: BorderRadius.circular(20)
                                           ),
-                                          padding: EdgeInsets.symmetric(horizontal: 10),
+                                          padding: const EdgeInsets.symmetric(horizontal: 10),
                                           child:Image.asset('assets/images/headphones.png',fit: BoxFit.fill,
                                             opacity: const AlwaysStoppedAnimation(.9),)),
                                      ),
@@ -365,20 +362,20 @@ class HomeScreen extends StatelessWidget {
                                                   color: Colors.grey[300],
                                                   borderRadius: BorderRadius.circular(10)
                                               ),
-                                              child: Icon(Icons.favorite,
+                                              child: const Icon(Icons.favorite,
                                                 color: Colors.red,size: 17,),
                                             ),
                                             Container(
                                               width: 35,
                                               height: 17,
-                                              padding: EdgeInsets.symmetric(horizontal: 3),
+                                              padding: const EdgeInsets.symmetric(horizontal: 3),
                                               decoration: BoxDecoration(
                                                   color: Colors.blueGrey[50],
                                                   borderRadius: BorderRadius.circular(30)
                                               ),
                                               child:  Row(
                                                 children: [
-                                                  Icon(Icons.star,color: Colors.amber,size: 12,),
+                                                  const Icon(Icons.star,color: Colors.amber,size: 12,),
                                                   CustomText(
                                                     text: '4.9',
                                                     fontsize: 10,

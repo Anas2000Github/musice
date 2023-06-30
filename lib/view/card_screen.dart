@@ -78,7 +78,7 @@ class _CardScreenState extends State<CardScreen> {
               listBox3('Colors'),
               30.height,
               CustomButton.buttonStyle(
-                  onPressed: () {}, text: 'Filter', paddingHorizontal: 150),
+                  onPressed: () {}, text: 'Filter', paddingHorizontal: Get.width*.33),
               10.height,
             ],
           ),
@@ -90,12 +90,12 @@ class _CardScreenState extends State<CardScreen> {
   listBox1(String textTile) {
     return GetBuilder<CheckOutViewModel>(
         init: CheckOutViewModel(),
-        builder: (controller) => Container(
+        builder: (controller) => SizedBox(
             width: Get.width * .9,
             child: Column(children: [
-                  Container(
+                  SizedBox(
                     width: Get.width,
-                    height: Get.height*.25,
+                    height: Get.height*.27,
                     child: ListView(
                       children: [
                         CustomText(
@@ -158,12 +158,12 @@ class _CardScreenState extends State<CardScreen> {
   listBox2(String textTile) {
     return GetBuilder<CheckOutViewModel>(
         init: CheckOutViewModel(),
-        builder: (controller) => Container(
+        builder: (controller) => SizedBox(
             width: Get.width * .9,
             child: Column(children: [
-              Container(
+              SizedBox(
                 width: Get.width,
-                height: Get.height*.25,
+                height: Get.height*.27,
                 child: ListView(
                   children: [
                     CustomText(
@@ -226,10 +226,10 @@ class _CardScreenState extends State<CardScreen> {
   listBox3(String textTile) {
     return GetBuilder<CheckOutViewModel>(
         init: CheckOutViewModel(),
-        builder: (controller) => Container(
+        builder: (controller) => SizedBox(
             width: Get.width * .9,
             child: Column(children: [
-              Container(
+              SizedBox(
                 width: Get.width,
                 height: Get.height*.3,
                 child: ListView(
