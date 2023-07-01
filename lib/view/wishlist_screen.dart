@@ -74,12 +74,12 @@ class WishListScreen extends StatelessWidget {
                                           left: Get.width * .29,
                                           top: Get.height * .015,),
                                         decoration: BoxDecoration(
-                                            color: Colors.grey[500],
+                                            color: Constants.backGroundColor,
                                             borderRadius: BorderRadius.circular(
                                                 10)
                                         ),
-                                        child: Icon(Icons.delete_outlined,
-                                          color: Colors.grey[300], size: 21,),
+                                        child: const Icon(Icons.delete_outlined,
+                                          color: Colors.black87, size: 21,weight: .2),
                                       ),
 
                                     ]

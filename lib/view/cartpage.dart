@@ -1,3 +1,4 @@
+import '../constants.dart';
 import '../controllers/cartcontroller.dart';
 import '../main.dart';
 import 'package:get/get.dart';
@@ -6,9 +7,15 @@ import 'package:flutter/material.dart';
 import '../services/settingssettings.dart';
 
 //هذا الملف المُخَصَّصِ لعرضِ صفحة سلة وعربة الأغراض المُختارة لِشِرائها قبل شِرائها
+<<<<<<< HEAD
 class CartPage extends GetView<SettingsServices> {
   CartPage({Key? key}) : super(key: key);
   RxBool updated=false.obs;
+=======
+class CartPage extends StatelessWidget {
+   CartPage({Key? key}) : super(key: key);
+
+>>>>>>> af70397f3b54c9a73c83fafdc8cc9d1ba3c3cb6c
   //ثوابت يجب تغييرها
 
   @override
@@ -20,8 +27,12 @@ class CartPage extends GetView<SettingsServices> {
       ),
       // color: Color(rgb(232, 240, 253)),
       //بإمكانك تغيير لون الخلفية من هون /\
+<<<<<<< HEAD
       backgroundColor: const Color.fromARGB(152, 238, 239, 228),
 
+=======
+      backgroundColor: Constants.backGroundColor,
+>>>>>>> af70397f3b54c9a73c83fafdc8cc9d1ba3c3cb6c
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -50,7 +61,7 @@ class CartPage extends GetView<SettingsServices> {
               const SizedBox(
                 height: 50,
               ),
-              //النواتج
+              //النواتج`
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 alignment: Alignment.topLeft,

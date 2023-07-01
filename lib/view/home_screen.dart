@@ -68,9 +68,9 @@ class HomeScreen extends StatelessWidget {
               Stack(
                   children:[
                     Container(
-                      margin: const EdgeInsets.only(bottom: 10,top: 25),
+                      margin: const EdgeInsets.only(bottom: 10,top: 15),
                       width: Get.width*.9,
-                      height: Get.height*.29,
+                      height: Get.height*.25,
                       child: Card(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
@@ -108,10 +108,12 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.topRight,
-                        width: Get.width*.9,
-                        child: Image.asset('assets/images/headphones.png')),
+                    FittedBox(
+                      child: Container(
+                        alignment: Alignment.topRight,
+                          width: Get.width,
+                          child: Image.asset('assets/images/headphones.png')),
+                    ),
                 ]
                 ),
               Container(
@@ -138,7 +140,7 @@ class HomeScreen extends StatelessWidget {
                               width: Get.width * .25,
                               height: Get.height * .15,
                               decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(.48),
+                                  color: Colors.black.withOpacity(.35),
                                 borderRadius: BorderRadius.circular(8.0)
                               ),
                               padding: const EdgeInsets.only(bottom: 5),
@@ -147,7 +149,7 @@ class HomeScreen extends StatelessWidget {
                                 text: 'Camera',
                                 color: Constants.backGroundColor,
                                 fontWeight: FontWeight.w500,
-                                fontsize: 14,
+                                fontsize: 12.5,
                               )),
 
                         ],),
@@ -277,7 +279,7 @@ class HomeScreen extends StatelessWidget {
                   alignment: Alignment.topLeft,
                   text: 'Special For Gaming',
               ),
-              Container(
+              SizedBox(
                 width: Get.width,
                 height: Get.height * .35,
                 child: ListView.separated(
@@ -292,103 +294,105 @@ class HomeScreen extends StatelessWidget {
                       },
                       child: Row(
                         children: [
-                          Card(
-                            elevation:10,
-                            child: Container(
-                              width: Get.size.width*.8,
-                              height: Get.height * .12,
-                              color: Constants.backGroundColor,
-                              padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                children: [
-                                   Expanded(
-                                     child: FittedBox(
-                                       child: Container(
-                                          height: Get.height * .17,
-                                          decoration: BoxDecoration(
-                                              color: Colors.grey[300],
-                                              borderRadius: BorderRadius.circular(20)
-                                          ),
-                                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                                          child:Image.asset('assets/images/headphones.png',fit: BoxFit.fill,
-                                            opacity: const AlwaysStoppedAnimation(.9),)),
+                          Expanded(
+                            child: Card(
+                              elevation:10,
+                              child: Container(
+                                width: Get.size.width*.8,
+                                height: Get.height * .12,
+                                color: Constants.backGroundColor,
+                                padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                     Expanded(
+                                       child: FittedBox(
+                                         child: Container(
+                                            height: Get.height * .17,
+                                            decoration: BoxDecoration(
+                                                color: Colors.grey[300],
+                                                borderRadius: BorderRadius.circular(20)
+                                            ),
+                                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                                            child:Image.asset('assets/images/headphones.png',fit: BoxFit.fill,
+                                              opacity: const AlwaysStoppedAnimation(.9),)),
+                                       ),
                                      ),
-                                   ),
-                                  SizedBox(
-                                    width: Get.width*.5,
-                                    height: Get.height * .1,
-                                    child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: FittedBox(
+                                    SizedBox(
+                                      width: Get.width*.5,
+                                      height: Get.height * .1,
+                                      child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: FittedBox(
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              children: [
+                                                CustomText(
+                                                  alignment: Alignment.topLeft,
+                                                  text: 'Game Controller',
+                                                  color: Constants.fontColor,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontsize: 15,
+                                                ),
+                                                CustomText(
+                                                  alignment: Alignment.topLeft,
+                                                  text: 'Fast Work',
+                                                  fontWeight: FontWeight.w400,
+                                                  fontsize: 13,
+                                                ),
+                                                CustomText(
+                                                  alignment: Alignment.topLeft,
+                                                  text: '\$50.00',
+                                                  color: Constants.fontColor,
+                                                  fontWeight: FontWeight.w400,
+                                                  fontsize: 15,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
                                           child: Column(
                                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                                             children: [
-                                              CustomText(
-                                                alignment: Alignment.topLeft,
-                                                text: 'Game Controller',
-                                                color: Constants.fontColor,
-                                                fontWeight: FontWeight.w600,
-                                                fontsize: 15,
+                                              Container(
+                                                height: Get.width*.05,
+                                                width: Get.width*.05,
+                                                alignment: Alignment.center,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.grey[300],
+                                                    borderRadius: BorderRadius.circular(10)
+                                                ),
+                                                child: const Icon(Icons.favorite,
+                                                  color: Colors.red,size: 18,),
                                               ),
-                                              CustomText(
-                                                alignment: Alignment.topLeft,
-                                                text: 'Fast Work',
-                                                fontWeight: FontWeight.w400,
-                                                fontsize: 13,
-                                              ),
-                                              CustomText(
-                                                alignment: Alignment.topLeft,
-                                                text: '\$50.00',
-                                                color: Constants.fontColor,
-                                                fontWeight: FontWeight.w400,
-                                                fontsize: 15,
-                                              ),
+                                              Container(
+                                                width: 35,
+                                                height: 17,
+                                                padding: const EdgeInsets.symmetric(horizontal: 3),
+                                                decoration: BoxDecoration(
+                                                    color: Colors.blueGrey[50],
+                                                    borderRadius: BorderRadius.circular(30)
+                                                ),
+                                                child:  Row(
+                                                  children: [
+                                                    const Icon(Icons.star,color: Colors.amber,size: 15,),
+                                                    CustomText(
+                                                      text: '4.9',
+                                                      fontsize: 10,
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
                                             ],
                                           ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Container(
-                                              height: Get.width*.05,
-                                              width: Get.width*.05,
-                                              alignment: Alignment.center,
-                                              decoration: BoxDecoration(
-                                                  color: Colors.grey[300],
-                                                  borderRadius: BorderRadius.circular(10)
-                                              ),
-                                              child: const Icon(Icons.favorite,
-                                                color: Colors.red,size: 17,),
-                                            ),
-                                            Container(
-                                              width: 35,
-                                              height: 17,
-                                              padding: const EdgeInsets.symmetric(horizontal: 3),
-                                              decoration: BoxDecoration(
-                                                  color: Colors.blueGrey[50],
-                                                  borderRadius: BorderRadius.circular(30)
-                                              ),
-                                              child:  Row(
-                                                children: [
-                                                  const Icon(Icons.star,color: Colors.amber,size: 12,),
-                                                  CustomText(
-                                                    text: '4.9',
-                                                    fontsize: 10,
-                                                  ),
-                                                ],
-                                              ),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),),
-                                ],
+                                      ],
+                                    ),),
+                                  ],
+                                ),
                               ),
                             ),
                           ),

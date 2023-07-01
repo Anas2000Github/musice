@@ -14,9 +14,17 @@ class CartController extends GetxController {
 
   late RxMap<String, Function()> process;
 
+<<<<<<< HEAD
+=======
+
+  void productZero(){
+    sharePrefs!.setString("productNumber", "0");
+    update();
+  }
+
+>>>>>>> af70397f3b54c9a73c83fafdc8cc9d1ba3c3cb6c
   void increment() {
     counter++;
-
     update();
   }
 

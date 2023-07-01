@@ -3,8 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:project_ecommerce/services/settingssettings.dart';
+import 'package:project_ecommerce/view/cartpage.dart';
 import 'package:project_ecommerce/view/splash_screen.dart';
 import 'package:get/get.dart';
+import 'package:project_ecommerce/view/temp1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'helper/languages.dart';
 
@@ -42,11 +44,15 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
 
 
+<<<<<<< HEAD
       home: const SplashScreen(),
       // getPages: [
       //   GetPage(name: "/Temp1", page: () => Temp1()),
       //   GetPage(name: "/cartPage", page: ()=>CartPage())
       // ],
+=======
+      home:  SplashScreen(),
+>>>>>>> af70397f3b54c9a73c83fafdc8cc9d1ba3c3cb6c
     );
   }
 }

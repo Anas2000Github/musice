@@ -25,7 +25,7 @@ class Temp1 extends GetView<SettingsServices> {
                           id: "1",
                           price: "\$20",
                           productName: "prod1",
-                          imgPath: "assets/images/shoes/shoes1.jpg"),
+                          imgPath: "assets/images/shoes/shoes1.png"),
                       );
 
                 Get.toNamed("/cartPage");
@@ -42,7 +42,7 @@ class Temp1 extends GetView<SettingsServices> {
                   child: Column(
                     children: [
                       const Icon(Icons.add_shopping_cart, size: 20,),
-                      Image.asset("assets/images/shoes/shoes1.jpg",
+                      Image.asset("assets/images/shoes/shoes1.png",
                         width: 100, height: 100,),
                     ],
                   ),
@@ -50,14 +50,13 @@ class Temp1 extends GetView<SettingsServices> {
               ),
             ),InkWell(
               onTap: (){
-
                   setServ.addItemtoCart(
                       CartItemWidget(
                         id: "2",
                         productName: "prod2",
                         price: "\$18",
                         imgPath:
-                            "assets/images/shoes/341883963_584937046920002_7869963513158198924_n-transformed.png",
+                            "assets/images/shoes/shoes2.png",
                       ),
 
                       );
@@ -76,7 +75,7 @@ class Temp1 extends GetView<SettingsServices> {
                   child: Column(
                     children: [
                       const Icon(Icons.add_shopping_cart, size: 20,),
-                      Image.asset("assets/images/shoes/341883963_584937046920002_7869963513158198924_n-transformed.png",
+                      Image.asset("assets/images/shoes/shoes2.png",
                         width: 100, height: 100,),
                     ],
                   ),

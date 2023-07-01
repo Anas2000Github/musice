@@ -33,14 +33,18 @@ class OrderDetailsScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                  width: Get.width,
-                  height: Get.height*.3,
-                  child: Image.asset('assets/images/purchase.png')),
-              Container(
-                  width: Get.width*.5,
-                  alignment: Alignment.center,
-                  child: CustomText(text:'Hey, Jarif \nThank You For Purchase',textAlign: TextAlign.center,fontsize: 18,height: 1.5,color: Constants.fontColor,),),
+              FittedBox(
+                child: SizedBox(
+                    width: Get.width,
+                    height: Get.height*.3,
+                    child: Image.asset('assets/images/purchase.png')),
+              ),
+               FittedBox(
+                 child: Container(
+                    width: Get.width*.5,
+                    alignment: Alignment.center,
+                    child: CustomText(text:'Hey, Jarif \nThank You For Purchase',textAlign: TextAlign.center,fontsize: 18,height: 1.5,color: Constants.fontColor,),),
+               ),
               Container(
                   height: Get.height*.3,
                   padding: const EdgeInsets.all(10),
@@ -81,7 +85,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       TextButton(onPressed: (){}, child: Text('Track Order ',style: TextStyle(color: Colors.blue),)),
                     ],
                   ),),
-               60.height,
+               (Get.height*.025).height,
                CustomButton.buttonStyle(
                    onPressed: () {}, text: 'Continue Shaping', paddingHorizontal: Get.width*.2,
                    colorButton: Constants.primaryColor,

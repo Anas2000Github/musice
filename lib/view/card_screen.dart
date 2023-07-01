@@ -40,14 +40,14 @@ class _CardScreenState extends State<CardScreen> {
     return Scaffold(
       backgroundColor: Constants.backGroundColor,
       body: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 20,
-        ),
-        margin: EdgeInsets.only(top: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 20,),
+        margin: const EdgeInsets.only(top: 30),
         child: SingleChildScrollView(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              listBox1('Brands'),
+               listBox1('Brands'),
               listBox2('Tage'),
               CustomText(
                 text: 'Price Range',
@@ -91,11 +91,10 @@ class _CardScreenState extends State<CardScreen> {
     return GetBuilder<CheckOutViewModel>(
         init: CheckOutViewModel(),
         builder: (controller) => SizedBox(
-            width: Get.width * .9,
+            width: Get.width * .3,
             child: Column(children: [
                   SizedBox(
-                    width: Get.width,
-                    height: Get.height*.27,
+                    height: Get.height*.26,
                     child: ListView(
                       children: [
                         CustomText(
@@ -159,11 +158,11 @@ class _CardScreenState extends State<CardScreen> {
     return GetBuilder<CheckOutViewModel>(
         init: CheckOutViewModel(),
         builder: (controller) => SizedBox(
-            width: Get.width * .9,
+            width: Get.width * .3,
             child: Column(children: [
               SizedBox(
-                width: Get.width,
-                height: Get.height*.27,
+
+                height: Get.height*.26,
                 child: ListView(
                   children: [
                     CustomText(
@@ -224,13 +223,12 @@ class _CardScreenState extends State<CardScreen> {
             ])));
   }
   listBox3(String textTile) {
-    return GetBuilder<CheckOutViewModel>(
+    return  SizedBox(
+        width: Get.width * .3,
+        child: GetBuilder<CheckOutViewModel>(
         init: CheckOutViewModel(),
-        builder: (controller) => SizedBox(
-            width: Get.width * .9,
-            child: Column(children: [
+        builder: (controller) => Column(children: [
               SizedBox(
-                width: Get.width,
                 height: Get.height*.3,
                 child: ListView(
                   children: [
