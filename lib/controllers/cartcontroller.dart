@@ -1,4 +1,3 @@
-import 'package:project_ecommerce/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/cartitemsmodel.dart';
@@ -41,17 +40,12 @@ class CartController extends GetxController {
     update();
   }
 
-  void remove(int index) {
-    hideItem = false.obs;
-    setServ.items.removeAt(index);
-    for(int i=0; i<counter.toInt();i++)
-    decrementTotalPrice(unitPrice.value);
-    update();
-  }
+  // زيادة مجموع سعر الأغراض في كل مرة يتم إضافة غرض أو زيادة الكمية المطلوبة من الغرض
   void incrementTotalPrice(double value){
     totalPrice= (totalPrice.toDouble() + value).obs;
     update();
   }
+
   void decrementTotalPrice(double value){
     totalPrice= (totalPrice.toDouble() - value).obs;
     update();
