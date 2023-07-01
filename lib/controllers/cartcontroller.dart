@@ -2,7 +2,6 @@ import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/cartitemsmodel.dart';
-import '../widgets/cartitem.dart';
 
 class CartController extends GetxController {
   RxInt counter = 0.obs;
@@ -15,10 +14,6 @@ class CartController extends GetxController {
 
   late RxMap<String, Function()> process;
 
-  void productZero(){
-    sharePrefs!.setString("productNumber", "0");
-    update();
-  }
   @override
   void increment() {
     counter++;
