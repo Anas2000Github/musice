@@ -1,4 +1,4 @@
-import '../main.dart';
+import 'package:project_ecommerce/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/cartitemsmodel.dart';
