@@ -13,17 +13,17 @@ SharedPreferences? sharePrefs;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   sharePrefs= await SharedPreferences.getInstance();
-  await initialServices();
+  // await initialServices();
   runApp(DevicePreview(
       enabled: !kReleaseMode,
       builder: (context) => const MyApp(),
   ));
 }
-Future initialServices () async {
-
-  setServ = await Get.putAsync(() => SettingsServices().init());
-  return setServ;
-}
+// Future initialServices () async {
+//
+//   // setServ = await Get.putAsync(() => SettingsServices().init());
+//   return setServ;
+// }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Blue Diamond',
       translations: Languages(),
 
       useInheritedMediaQuery: true,
@@ -43,6 +43,10 @@ class MyApp extends StatelessWidget {
 
 
       home: const SplashScreen(),
+      // getPages: [
+      //   GetPage(name: "/Temp1", page: () => Temp1()),
+      //   GetPage(name: "/cartPage", page: ()=>CartPage())
+      // ],
     );
   }
 }

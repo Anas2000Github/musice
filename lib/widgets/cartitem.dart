@@ -1,9 +1,9 @@
+import '../main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/cartcontroller.dart';
-import '../main.dart';
 
 // ignore: must_be_immutable
 class CartItemWidget extends StatelessWidget {
@@ -30,94 +30,85 @@ class CartItemWidget extends StatelessWidget {
 
     // CartItem item = CartItem();
 
-    if(setServ.cartController.hideItem == false.obs){
-      //todo : الشرط هذا من شان كبسة الحذف
-      return  Container(
-          margin:
-          const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-          padding:
-          const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
-          height: 100,
-          width: 500,
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.white.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: const Offset(0, 3), // changes position of shadow
-                ),
-              ],
-              borderRadius: BorderRadius.circular(5),
-              color: const Color.fromARGB(253, 248, 248, 248)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Image.asset(
-                "$imgPath",
-                width: 80,
-                height: 80,
+    return  Container(
+        margin:
+        const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
+        padding:
+        const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
+        height: 100,
+        width: 500,
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.white.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3), // changes position of shadow
               ),
-              Column(
-                children: [
-                  Text("$productName"),
-                  // Text(prcStr),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            increment();
-                            setServ.cartController.incrementTotalPrice(
-                                double.parse(price!.substring(1)));
-                            Get.put(CartController()).update();
-                          },
-                          icon: const Icon(CupertinoIcons.plus_circle)),
-                      GetBuilder<CartController>(
-                          init: Get.put(CartController()),
-                          builder: (cartController) {
-                            return Text("${quantity.value}");}),
-                      IconButton(
-                          onPressed: () {
-                            decrement();
-                            setServ.cartController.totalPrice = (setServ.cartController.totalPrice.value
-                                - double.parse(price!.substring(1))).obs;
-                          },
-                          icon: const Icon(CupertinoIcons.minus_circle))
-                    ],
-                  ),
-                  Text("$price")
-                ],
-              ),
-              SizedBox(
-                width: 480 / 3,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            setServ.removeItem(
-                                CartItemWidget(
-                                    id: id!,imgPath: imgPath!,
-                                    productName: productName!,
-                                    price: price!));
-
-                            // print("${item.cartitems}");
-                          },
-                          icon: const Icon(CupertinoIcons.trash)),
-                    ]),
-              )
             ],
-          )
-      );
-    }
-    else {
-      return  Container(
-      );
-    }
-
-
-
+            borderRadius: BorderRadius.circular(5),
+            color: const Color.fromARGB(253, 248, 248, 248)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Image.asset(
+              "$imgPath",
+              width: 80,
+              height: 80,
+            ),
+            Column(
+              children: [
+                Text("$productName"),
+                // Text(prcStr),
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          increment();
+                          setServ.cartController.incrementTotalPrice(
+                              double.parse(price!.substring(1)));
+                          Get.put(CartController()).update();
+                        },
+                        icon: const Icon(CupertinoIcons.plus_circle)),
+                    GetBuilder<CartController>(
+                        init: Get.put(CartController()),
+                        builder: (cartController) {
+                          return Text("${quantity.value}");}),
+                    IconButton(
+                        onPressed: () {
+                          decrement();
+                          setServ.cartController.totalPrice = (setServ.cartController.totalPrice.value
+                              - double.parse(price!.substring(1))).obs;
+                        },
+                        icon: const Icon(CupertinoIcons.minus_circle))
+                  ],
+                ),
+                Text("$price")
+              ],
+            ),
+            SizedBox(
+              width: 480 / 3,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          setServ.removeItem(
+                              CartItemWidget(
+                                  id: id!,imgPath: imgPath!,
+                                  productName: productName!,
+                                  price: price!));
+                          setServ.cartController.hideItem=true.obs;
+                          setServ.cartController.update();
+                          // print("${item.cartitems}");
+                        },
+                        icon: const Icon(CupertinoIcons.trash)),
+                  ]),
+            )
+          ],
+        )
+    );
   }
   void increment(){
     quantity++;

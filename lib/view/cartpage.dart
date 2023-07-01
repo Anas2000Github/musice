@@ -2,19 +2,17 @@ import '../controllers/cartcontroller.dart';
 import '../main.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import '../models/cartitemsmodel.dart';
-import '../widgets/cartitem.dart';
+
+import '../services/settingssettings.dart';
 
 //هذا الملف المُخَصَّصِ لعرضِ صفحة سلة وعربة الأغراض المُختارة لِشِرائها قبل شِرائها
-class CartPage extends StatelessWidget {
+class CartPage extends GetView<SettingsServices> {
   CartPage({Key? key}) : super(key: key);
-
+  RxBool updated=false.obs;
   //ثوابت يجب تغييرها
 
-  final CartController cartController = Get.put(CartController());
   @override
   Widget build(BuildContext context) {
-    CartItems ci = CartItems();
     // CartItemWidget ciw = CartItemWidget();
     return Scaffold(
       appBar: AppBar(
@@ -22,24 +20,31 @@ class CartPage extends StatelessWidget {
       ),
       // color: Color(rgb(232, 240, 253)),
       //بإمكانك تغيير لون الخلفية من هون /\
-      backgroundColor: const Color.fromARGB(57, 144, 154, 170),
+      backgroundColor: const Color.fromARGB(152, 238, 239, 228),
+
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children:
-                    //هنا يتم عرض المُنتج الواحد أو السِّلعة الواحدة
-                    //{
-                    setServ.items.map((e)  {
-                      if(setServ.cartController.hideItem.isFalse){
+              GetBuilder<CartController>(
+
+                  builder: (context) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children:
+                      //هنا يتم عرض الأغراض المضافة
+
+                      setServ.items.map((e)  {
                         return e;
-                      }
-                      return Text("This item is not available");})
-                    .toList(),
-                //} نهاية عرض السِّلَع
+                        // return const Text("This item is not available");
+                      })
+                          .toList()
+                      // return const Text("This item is not available");
+                      ,
+                      //} نهاية عرض الأغراض
+                    );
+                  }
               ),
               //مسافة 50
               const SizedBox(
@@ -60,9 +65,9 @@ class CartPage extends StatelessWidget {
                           style: TextStyle(fontSize: 18),
                         ),
                         GetBuilder<CartController>(
-                          builder: (context) {
-                            return Text("${context.totalPrice}");
-                          }
+                            builder: (context) {
+                              return Text("${context.totalPrice}");
+                            }
                         )
                       ],
                     ),
@@ -76,9 +81,9 @@ class CartPage extends StatelessWidget {
                         ),
                         GetBuilder<CartController>(
 
-                          builder: (controller) {
-                            return Text("${controller.shipping}");
-                          }
+                            builder: (controller) {
+                              return Text("${controller.shipping}");
+                            }
                         )
                       ],
                     ),
@@ -91,10 +96,10 @@ class CartPage extends StatelessWidget {
                           style: TextStyle(fontSize: 18),
                         ),
                         GetBuilder(
-                          init: CartController(),
-                          builder: (controller) {
-                            return Text("${controller.unitPrice}");
-                          }
+                            init: CartController(),
+                            builder: (controller) {
+                              return Text("${controller.unitPrice}");
+                            }
                         )
                       ],
                     ),
@@ -123,9 +128,9 @@ class CartPage extends StatelessWidget {
                     ),
                     child: const Center(
                         child: Text(
-                      /*------->*/ "Proceed to Checkout", //<------
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    )),
+                          /*------->*/ "Proceed to Checkout", //<------
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        )),
                   ))
               //نهاية الزر
             ],

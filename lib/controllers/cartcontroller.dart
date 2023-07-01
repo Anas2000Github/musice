@@ -9,11 +9,11 @@ class CartController extends GetxController {
   RxDouble shipping = 0.0.obs;
   RxDouble unitPrice = 0.0.obs;
   RxString currentId = "0".obs;
+
   CartItems item = CartItems();
 
   late RxMap<String, Function()> process;
 
-  @override
   void increment() {
     counter++;
 
@@ -23,29 +23,23 @@ class CartController extends GetxController {
   void decrement() {
     if(counter.value<=0){
       Get.snackbar("Buying shoes", "Can not be less than zero ",
-      icon: Icon(Icons.alarm),
-    barBlur:20,
-    isDismissible: true,
-    duration: Duration(seconds: 3),
-    );
+        icon: const Icon(Icons.alarm),
+        barBlur:20,
+        isDismissible: true,
+        duration: const Duration(seconds: 3),
+      );
     }else{
-    counter--;
+      counter--;
     }
 
     update();
   }
 
-  void removeAt(int i) {
-    item.cartitems.removeAt(i);
-    update();
-  }
 
-  // زيادة مجموع سعر الأغراض في كل مرة يتم إضافة غرض أو زيادة الكمية المطلوبة من الغرض
   void incrementTotalPrice(double value){
     totalPrice= (totalPrice.toDouble() + value).obs;
     update();
   }
-
   void decrementTotalPrice(double value){
     totalPrice= (totalPrice.toDouble() - value).obs;
     update();
