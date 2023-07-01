@@ -1,3 +1,4 @@
+import '../constants.dart';
 import '../controllers/cartcontroller.dart';
 import '../main.dart';
 import 'package:get/get.dart';
@@ -7,7 +8,7 @@ import '../widgets/cartitem.dart';
 
 //هذا الملف المُخَصَّصِ لعرضِ صفحة سلة وعربة الأغراض المُختارة لِشِرائها قبل شِرائها
 class CartPage extends StatelessWidget {
-  CartPage({Key? key}) : super(key: key);
+   CartPage({Key? key}) : super(key: key);
 
   //ثوابت يجب تغييرها
 
@@ -22,7 +23,7 @@ class CartPage extends StatelessWidget {
       ),
       // color: Color(rgb(232, 240, 253)),
       //بإمكانك تغيير لون الخلفية من هون /\
-      backgroundColor: const Color.fromARGB(57, 144, 154, 170),
+      backgroundColor: Constants.backGroundColor,
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -45,7 +46,7 @@ class CartPage extends StatelessWidget {
               const SizedBox(
                 height: 50,
               ),
-              //النواتج
+              //النواتج`
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 alignment: Alignment.topLeft,

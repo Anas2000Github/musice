@@ -3,8 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:project_ecommerce/services/settingssettings.dart';
+import 'package:project_ecommerce/view/cartpage.dart';
 import 'package:project_ecommerce/view/splash_screen.dart';
 import 'package:get/get.dart';
+import 'package:project_ecommerce/view/temp1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'helper/languages.dart';
 
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
 
 
-      home: const SplashScreen(),
+      home:  SplashScreen(),
     );
   }
 }
