@@ -65,9 +65,7 @@ class CartItemWidget extends StatelessWidget {
                     IconButton(
                         onPressed: () {
                           increment();
-                          setServ.cartController.incrementTotalPrice(
-                              double.parse(price!.substring(1)));
-                          Get.put(CartController()).update();
+
                         },
                         icon: const Icon(CupertinoIcons.plus_circle)),
                     GetBuilder<CartController>(
@@ -77,8 +75,7 @@ class CartItemWidget extends StatelessWidget {
                     IconButton(
                         onPressed: () {
                           decrement();
-                          setServ.cartController.totalPrice = (setServ.cartController.totalPrice.value
-                              - double.parse(price!.substring(1))).obs;
+
                         },
                         icon: const Icon(CupertinoIcons.minus_circle))
                   ],
@@ -95,10 +92,7 @@ class CartItemWidget extends StatelessWidget {
                     IconButton(
                         onPressed: () {
                           setServ.removeItem(
-                              CartItemWidget(
-                                  id: id!,imgPath: imgPath!,
-                                  productName: productName!,
-                                  price: price!));
+                              this);
 
                           // print("${item.cartitems}");
                         },
@@ -112,10 +106,27 @@ class CartItemWidget extends StatelessWidget {
   void increment(){
     quantity++;
     setServ.cartController.update();
+    setServ.cartController.incrementTotalPrice(
+        double.parse(price!.substring(1)));
+    Get.put(CartController()).update();
   }
   void decrement(){
-    quantity--;
-    setServ.cartController.update();
+    if(quantity.value<=0){
+      Get.snackbar("reducing failed", "Can not be less than zero ",
+        icon: const Icon(Icons.alarm),
+        barBlur:20,
+        isDismissible: true,
+        duration: const Duration(seconds: 3),);
+    }else {
+
+      quantity--;
+      setServ.cartController.totalPrice =
+          (setServ.cartController.totalPrice.value -
+              double.parse(price!.substring(1)))
+              .obs;
+      setServ.cartController.update();
+
+    }
   }
 // @override
 // void initState() {

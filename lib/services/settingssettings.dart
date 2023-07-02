@@ -38,18 +38,20 @@ class SettingsServices extends GetxService{
 
   void removeItem(CartItemWidget itemData){
     int count = itemData.quantity.value;
-    do{
+    while(count>0){
+
       cartController.decrementTotalPrice(
           double.parse(itemData.price!.substring(1)));
       count--;
-    }while(count>0);
+
+    }
     // cartController.hideItem = true.obs;
-    if(cartController.items.indexOf(itemData)<cartController.items.length
-        && cartController.items.indexOf(itemData)>0
-    ) {
+
+    try {
       cartController.items.removeAt(cartController.items.indexOf(itemData));
-    }else{
-      cartController.items.removeAt(cartController.items.indexOf(itemData)+1);
+    }catch(e){
+      print("$e\n${cartController.items.indexOf(itemData)}");
+
     }
     cartController.update();
 
