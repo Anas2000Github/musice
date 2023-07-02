@@ -180,7 +180,8 @@ class HomeScreen extends StatelessWidget {
                                 width: Get.width*.43,
                                 height: Get.height * .3,
                                 color: Constants.backGroundColor,
-                                padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 6),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,vertical: 6),
                                 child: Column(
                                   children: [
                                     Stack(
