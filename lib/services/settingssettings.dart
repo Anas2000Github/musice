@@ -10,62 +10,49 @@ class SettingsServices extends GetxService{
   RxInt index = 0.obs;
   CartController cartController = Get.put(CartController());
 
-  RxList<CartItemWidget> items = RxList();
 
 // todo : هذا الميثود الذي يُضيف المنتج في سلة المشتريات
   void addItemtoCart(CartItemWidget product){
     bool itemsContainsProduct =false;
-    if(items.isEmpty) {
-      items.add(product);
-      cartController.incrementTotalPrice(double.parse(items.last.price!.substring(1)));
+    if(cartController.items.isEmpty) {
+      cartController.items.add(product);
+      cartController.incrementTotalPrice(double.parse(cartController.items.last.price!.substring(1)));
       cartController.update();}
     else{
-      for (int i = 0; i < items.length; i++) {
-        if (items[i].id == product.id) {
+      for (int i = 0; i < cartController.items.length; i++) {
+        if (cartController.items[i].id == product.id) {
           itemsContainsProduct = true;
         }
       }
       if(itemsContainsProduct == false){
-        items.add(product);
+        cartController.items.add(product);
         cartController.incrementTotalPrice(
-            double.parse(items.last.price!.substring(1)));
+            double.parse(cartController.items.last.price!.substring(1)));
         cartController.update();
       }
     }
     if (kDebugMode) {
-      print((items.isEmpty));
+      print((cartController.items.isEmpty));
     }
   }
 
   void removeItem(CartItemWidget itemData){
-    // ااستخدم index للعنصر
-    // sharePrefs!.remove("item");
-    for(CartItemWidget itemm in items){
-      if(itemm == itemData){
-        if(items[items.indexOf(itemData)] == items.last) {
-          items[items.indexOf(itemData)]=CartItemWidget();
-          cartController.update();
-        }else
-        if(items[items.indexOf(itemData)]==items.first){
-          for(int i = 0; i<items.length; i++){
-            if(i<items.length-1) {
-              items[i] = items[i++];
-            }
-          }
-        }
-        break;
-      }
-      cartController.update();
-    }
-
-    int count = cartController.counter.value;
+    int count = itemData.quantity.value;
     do{
       cartController.decrementTotalPrice(
           double.parse(itemData.price!.substring(1)));
       count--;
     }while(count>0);
     // cartController.hideItem = true.obs;
+    if(cartController.items.indexOf(itemData)<cartController.items.length
+        && cartController.items.indexOf(itemData)>0
+    ) {
+      cartController.items.removeAt(cartController.items.indexOf(itemData));
+    }else{
+      cartController.items.removeAt(cartController.items.indexOf(itemData)+1);
+    }
     cartController.update();
+
     // cartController.remove(index)
   }
 

@@ -99,8 +99,7 @@ class CartItemWidget extends StatelessWidget {
                                   id: id!,imgPath: imgPath!,
                                   productName: productName!,
                                   price: price!));
-                          setServ.cartController.hideItem=true.obs;
-                          setServ.cartController.update();
+
                           // print("${item.cartitems}");
                         },
                         icon: const Icon(CupertinoIcons.trash)),

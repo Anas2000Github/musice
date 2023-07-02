@@ -43,16 +43,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
 
-
-<<<<<<< HEAD
       home: const SplashScreen(),
       // getPages: [
       //   GetPage(name: "/Temp1", page: () => Temp1()),
       //   GetPage(name: "/cartPage", page: ()=>CartPage())
       // ],
-=======
-      home:  SplashScreen(),
->>>>>>> af70397f3b54c9a73c83fafdc8cc9d1ba3c3cb6c
     );
   }
 }
