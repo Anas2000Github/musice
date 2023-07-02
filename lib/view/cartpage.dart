@@ -26,21 +26,15 @@ class CartPage extends GetView<SettingsServices> {
           child: Column(
             children: [
               GetBuilder<CartController>(
-
                   builder: (context) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children:
                       //هنا يتم عرض الأغراض المضافة
-
                       setServ.cartController.items.map((e)  {
                         return e;
-                        // return const Text("This item is not available");
-                      })
-                          .toList()
-                      // return const Text("This item is not available");
-                      ,
+                      }).toList(),
                       //} نهاية عرض الأغراض
                     );
                   }
@@ -65,7 +59,7 @@ class CartPage extends GetView<SettingsServices> {
                         ),
                         GetBuilder<CartController>(
                             builder: (context) {
-                              return Text("${context.totalPrice}");
+                              return Text("\$${context.totalPrice}");
                             }
                         )
                       ],
@@ -81,7 +75,7 @@ class CartPage extends GetView<SettingsServices> {
                         GetBuilder<CartController>(
 
                             builder: (controller) {
-                              return Text("${controller.shipping}");
+                              return Text("\$${controller.shipping}");
                             }
                         )
                       ],
@@ -97,7 +91,7 @@ class CartPage extends GetView<SettingsServices> {
                         GetBuilder(
                             init: CartController(),
                             builder: (controller) {
-                              return Text("${controller.unitPrice}");
+                              return Text("\$${controller.unitPrice}");
                             }
                         )
                       ],

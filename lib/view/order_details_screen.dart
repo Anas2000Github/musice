@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/helper/sized_box_enum.dart';
+import 'package:project_ecommerce/main.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text.dart';
@@ -55,7 +56,7 @@ class OrderDetailsScreen extends StatelessWidget {
                          crossAxisAlignment: CrossAxisAlignment.center,
                          children: [
                            CustomText(text:'Total',fontsize: 15),
-                           CustomText(text:'\$100.0',fontsize: 15),
+                           CustomText(text:'\$${setServ.cartController.totalPrice}',fontsize: 15),
                          ],
                        ),
                        5.height,
@@ -63,7 +64,7 @@ class OrderDetailsScreen extends StatelessWidget {
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: [
                            CustomText(text:'Shipping',fontsize: 15),
-                           CustomText(text:'\$5.0',fontsize: 15),
+                           CustomText(text:'\$${setServ.cartController.shipping}',fontsize: 15),
 
                          ],
                        ),
@@ -72,7 +73,7 @@ class OrderDetailsScreen extends StatelessWidget {
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: [
                            CustomText(text:'Shoe',fontsize: 15),
-                           CustomText(text:'\$95.0',fontsize: 15),
+                           CustomText(text:'\$${setServ.cartController.unitPrice}',fontsize: 15),
 
                          ],
                        ),
@@ -82,7 +83,7 @@ class OrderDetailsScreen extends StatelessWidget {
                           colorButton: Constants.fontColor,
                       borderSize: 50),
                       10.height,
-                      TextButton(onPressed: (){}, child: Text('Track Order ',style: TextStyle(color: Colors.blue),)),
+                      TextButton(onPressed: (){}, child: const Text('Track Order ',style: TextStyle(color: Colors.blue),)),
                     ],
                   ),),
                (Get.height*.025).height,
