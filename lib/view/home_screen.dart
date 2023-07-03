@@ -108,12 +108,10 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    FittedBox(
-                      child: Container(
-                        alignment: Alignment.topRight,
-                          width: Get.width,
-                          child: Image.asset('assets/images/headphones.png')),
-                    ),
+                    Container(
+                      alignment: Alignment.topRight,
+                        width: Get.width,
+                        child: Image.asset('assets/images/headphones.png')),
                 ]
                 ),
               Container(

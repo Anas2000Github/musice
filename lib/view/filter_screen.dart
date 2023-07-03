@@ -4,20 +4,21 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/helper/sized_box_enum.dart';
+import 'package:project_ecommerce/view/temp1.dart';
 import 'package:project_ecommerce/view_model/check_out_view_model.dart';
 import 'package:project_ecommerce/widgets/custom_button.dart';
 import 'package:project_ecommerce/widgets/custom_text.dart';
 
 import '../widgets/custom_check_box.dart';
 
-class CardScreen extends StatefulWidget {
-  const CardScreen({Key? key}) : super(key: key);
+class  FilterColorScreen extends StatefulWidget {
+  const FilterColorScreen({Key? key}) : super(key: key);
 
   @override
-  State<CardScreen> createState() => _CardScreenState();
+  State<FilterColorScreen> createState() => _FilterColorScreenState();
 }
 
-class _CardScreenState extends State<CardScreen> {
+class _FilterColorScreenState extends State<FilterColorScreen> {
   double _value = 0.0;
   bool isBrands1 = false;
   bool isBrands2 = false;
@@ -41,7 +42,7 @@ class _CardScreenState extends State<CardScreen> {
       backgroundColor: Constants.backGroundColor,
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20,),
-        margin: const EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 20),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -49,6 +50,7 @@ class _CardScreenState extends State<CardScreen> {
             children: [
                listBox1('Brands'),
               listBox2('Tage'),
+              10.height,
               CustomText(
                 text: 'Price Range',
                 fontsize: 21,
@@ -66,7 +68,7 @@ class _CardScreenState extends State<CardScreen> {
               Slider(
                   min: 0,
                   max: 1000,
-                  divisions: 10,
+                  divisions: 20,
                   activeColor: Constants.primaryColor,
                   value: _value,
                   onChanged: (value) {
@@ -78,7 +80,9 @@ class _CardScreenState extends State<CardScreen> {
               listBox3('Colors'),
               30.height,
               CustomButton.buttonStyle(
-                  onPressed: () {}, text: 'Filter', paddingHorizontal: Get.width*.33),
+                  onPressed: () {
+                    Get.to(Temp1());
+                  }, text: 'Filter', paddingHorizontal: Get.width*.33),
               10.height,
             ],
           ),
@@ -94,11 +98,12 @@ class _CardScreenState extends State<CardScreen> {
             width: Get.width * .3,
             child: Column(children: [
                   SizedBox(
-                    height: Get.height*.26,
+                    height: Get.height*.27,
                     child: ListView(
+                      shrinkWrap: false,
+                      padding: EdgeInsets.symmetric(vertical: 20),
                       children: [
                         CustomText(
-                          alignment: Alignment.topLeft,
                           text: textTile,
                           fontsize: 21,
                           color: Constants.fontColor,
@@ -107,9 +112,7 @@ class _CardScreenState extends State<CardScreen> {
                           color: Colors.black87,
                             value: isBrands1,
                             onChanged: (val){
-                              setState(() {
-
-                              });
+                              setState(() {});
                               isBrands1=val;
                             },
                             text: 'Apex'
@@ -118,9 +121,7 @@ class _CardScreenState extends State<CardScreen> {
                           color: Colors.black87,
                             value: isBrands2,
                             onChanged: (val){
-                              setState(() {
-
-                              });
+                              setState(() {});
                               isBrands2=val;
                             },
                               text: 'Zara'
@@ -129,9 +130,7 @@ class _CardScreenState extends State<CardScreen> {
                           color: Colors.black87,
                             value: isBrands3,
                             onChanged: (val){
-                              setState(() {
-
-                              });
+                              setState(() {});
                               isBrands3=val;
                             },
                             text: 'Adidas'
@@ -161,12 +160,12 @@ class _CardScreenState extends State<CardScreen> {
             width: Get.width * .3,
             child: Column(children: [
               SizedBox(
-
                 height: Get.height*.26,
                 child: ListView(
+                  shrinkWrap: false,
+                  padding: EdgeInsets.all(5),
                   children: [
                     CustomText(
-                      alignment: Alignment.topLeft,
                       text: textTile,
                       fontsize: 21,
                       color: Constants.fontColor,
@@ -231,9 +230,10 @@ class _CardScreenState extends State<CardScreen> {
               SizedBox(
                 height: Get.height*.3,
                 child: ListView(
+                  shrinkWrap: false,
+                  padding: EdgeInsets.all(5),
                   children: [
                     CustomText(
-                      alignment: Alignment.topLeft,
                       text: textTile,
                       fontsize: 21,
                       color: Constants.fontColor,

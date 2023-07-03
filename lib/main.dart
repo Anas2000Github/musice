@@ -44,10 +44,10 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
 
       home: const SplashScreen(),
-      // getPages: [
-      //   GetPage(name: "/Temp1", page: () => Temp1()),
-      //   GetPage(name: "/cartPage", page: ()=>CartPage())
-      // ],
+      getPages: [
+        GetPage(name: "/Temp1", page: () => Temp1()),
+        GetPage(name: "/cartPage", page: ()=>CartPage())
+      ],
     );
   }
 }

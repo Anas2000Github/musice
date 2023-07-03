@@ -1,3 +1,5 @@
+import 'package:project_ecommerce/constants.dart';
+
 import '../controllers/cartcontroller.dart';
 import '../main.dart';
 import '../services/settingssettings.dart';
@@ -19,7 +21,7 @@ class CartPage extends GetView<SettingsServices> {
       ),
       // color: Color(rgb(232, 240, 253)),
       //بإمكانك تغيير لون الخلفية من هون /\
-      backgroundColor: const Color.fromARGB(152, 238, 239, 228),
+      backgroundColor: Constants.backGroundColor,
 
       body: SingleChildScrollView(
         child: Center(

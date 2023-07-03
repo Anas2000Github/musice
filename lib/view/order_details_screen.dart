@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/helper/sized_box_enum.dart';
 import 'package:project_ecommerce/main.dart';
+import 'package:project_ecommerce/view/temp1.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text.dart';
@@ -79,7 +80,9 @@ class OrderDetailsScreen extends StatelessWidget {
                        ),
                       20.height,
                       CustomButton.buttonStyle(
-                            onPressed: () {}, text: 'Filter', paddingHorizontal: Get.width*.3,
+                            onPressed: () {
+                            Get.to(Temp1());
+                            }, text: 'Filter', paddingHorizontal: Get.width*.3,
                           colorButton: Constants.fontColor,
                       borderSize: 50),
                       10.height,
