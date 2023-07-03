@@ -18,7 +18,7 @@ class Temp1 extends GetView<SettingsServices> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Constants.backGroundColor,
-      appBar: AppBar(title: Text("Temp1"),),
+      appBar: AppBar(title: const Text("Temp1"),),
       body: Center(
         child: Column(
           children: [
