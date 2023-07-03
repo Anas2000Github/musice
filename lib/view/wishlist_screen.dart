@@ -26,7 +26,7 @@ class WishListScreen extends StatelessWidget {
 
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: .65,
+                  childAspectRatio: .8,
                   crossAxisSpacing: 5
                 ),
                 itemCount: 7,
@@ -43,7 +43,6 @@ class WishListScreen extends StatelessWidget {
                           elevation: 10,
                           child: Container(
                             width: Get.width * .45,
-                            height: Get.height * .3,
                             color: Constants.backGroundColor,
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 6),
@@ -53,7 +52,6 @@ class WishListScreen extends StatelessWidget {
                                     children: [
                                       Container(
                                           width: Get.width * .4,
-                                          height: Get.height * .17,
                                           decoration: BoxDecoration(
                                               color: Colors.grey[300],
                                               borderRadius: BorderRadius

@@ -79,10 +79,12 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
                   }),
               listBox3('Colors'),
               30.height,
-              CustomButton.buttonStyle(
-                  onPressed: () {
-                    Get.to(Temp1());
-                  }, text: 'Filter', paddingHorizontal: Get.width*.33),
+              Center(
+                child: CustomButton.buttonStyle(
+                    onPressed: () {
+                      Get.to(Temp1());
+                    }, text: 'Filter', paddingHorizontal: Get.width*.33),
+              ),
               10.height,
             ],
           ),
