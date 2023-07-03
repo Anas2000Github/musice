@@ -5,23 +5,28 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/cartcontroller.dart';
+import 'box_of_size.dart';
+import 'custom_text.dart';
+import 'detailsitem_smallpic.dart';
 
 // ignore: must_be_immutable
-class CartItemWidget extends StatelessWidget {
+class DetailItemWidget extends StatelessWidget {
   final String? id;
   final String? imgPath;
   final String? productName;
   final String? price;
+  final List<String>? smallPics;
   RxInt quantity = 1.obs;
 
   // const List<CartItemWidget> cartItemWidgets ;
-  //todo : هذا هلو الكلاس اللي فيه العنصر
-  CartItemWidget({
+  //todo : هذا هو الكلاس اللي فيه العنصر الذي في صفحة تفاصيل المنتج
+  DetailItemWidget({
     Key? key,
     this.id,
     this.imgPath,
     this.productName,
     this.price,
+    this.smallPics
   }) : super(key: key);
 
   @override
@@ -43,17 +48,24 @@ class CartItemWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: Constants.fontBlackColor,width: 2)
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              "$imgPath",
-              width: 80,
-              height: 80,
+            CustomText(text:"$price"),
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(image:AssetImage(
+                  "$imgPath",
+                ) ,fit: BoxFit.fill),
+
+              ),
             ),
-            Column(
+            //10.height,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text("$productName"),
+                CustomText(text:"$productName"),
                 // Text(prcStr),
                 Row(
                   children: [
@@ -65,7 +77,7 @@ class CartItemWidget extends StatelessWidget {
                     GetBuilder<CartController>(
                         init: Get.put(CartController()),
                         builder: (cartController) {
-                          return Text("${quantity.value}");
+                          return CustomText(text:"${quantity.value}");
                         }),
                     IconButton(
                         onPressed: () {
@@ -74,24 +86,29 @@ class CartItemWidget extends StatelessWidget {
                         icon: const Icon(CupertinoIcons.minus_circle))
                   ],
                 ),
-                Text("$price")
+
               ],
             ),
-            SizedBox(
-              width: Get.size.width * .8 / 3,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          setServ.removeItem(this);
-
-                          // print("${item.cartitems}");
-                        },
-                        icon: const Icon(CupertinoIcons.trash,color: Colors.red,weight: 2,)),
-                  ]),
-            )
+            CustomText(text:"Select color"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SmallPic(imagePath: smallPics![0],),
+                SmallPic(imagePath: smallPics![1],),
+                SmallPic(imagePath: smallPics![2],),
+                SmallPic(imagePath: smallPics![3],),
+              ],
+            ),
+            CustomText(text:"Select size"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                BoxOfSize(size: "41",),
+                BoxOfSize(size: "42",),
+                BoxOfSize(size: "43",),
+                BoxOfSize(size: "44",),
+              ],
+            ),
           ],
         ));
   }

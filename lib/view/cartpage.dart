@@ -1,10 +1,11 @@
-import 'package:project_ecommerce/constants.dart';
-
+import '../constants.dart';
 import '../controllers/cartcontroller.dart';
 import '../main.dart';
 import '../services/settingssettings.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+
+import '../widgets/custom_text.dart';
 
 //هذا الملف المُخَصَّصِ لعرضِ صفحة سلة وعربة الأغراض المُختارة لِشِرائها قبل شِرائها
 class CartPage extends GetView<SettingsServices> {
@@ -18,6 +19,9 @@ class CartPage extends GetView<SettingsServices> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("bill"),
+        elevation: 0.0,
+        backgroundColor: Constants.backGroundColor,
+        // leading: IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/svg/back.svg')),
       ),
       // color: Color(rgb(232, 240, 253)),
       //بإمكانك تغيير لون الخلفية من هون /\
@@ -28,15 +32,18 @@ class CartPage extends GetView<SettingsServices> {
           child: Column(
             children: [
               GetBuilder<CartController>(
+
                   builder: (context) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children:
                       //هنا يتم عرض الأغراض المضافة
+
                       setServ.cartController.items.map((e)  {
                         return e;
                       }).toList(),
+
                       //} نهاية عرض الأغراض
                     );
                   }
@@ -55,13 +62,12 @@ class CartPage extends GetView<SettingsServices> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          "Total",
-                          style: TextStyle(fontSize: 18),
+                        CustomText(
+                          text: "Total",
                         ),
                         GetBuilder<CartController>(
-                            builder: (context) {
-                              return Text("\$${context.totalPrice}");
+                            builder: (controller) {
+                              return CustomText(text: "${controller.totalPrice}");
                             }
                         )
                       ],
@@ -70,14 +76,13 @@ class CartPage extends GetView<SettingsServices> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          "Shipping",
-                          style: TextStyle(fontSize: 18),
+                        CustomText(
+                          text:"Shipping",
                         ),
                         GetBuilder<CartController>(
 
                             builder: (controller) {
-                              return Text("\$${controller.shipping}");
+                              return CustomText(text: "${controller.shipping}");
                             }
                         )
                       ],
@@ -86,14 +91,13 @@ class CartPage extends GetView<SettingsServices> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          "Shoes",
-                          style: TextStyle(fontSize: 18),
+                        CustomText(
+                          text:"Shoes",
                         ),
                         GetBuilder(
                             init: CartController(),
                             builder: (controller) {
-                              return Text("\$${controller.unitPrice}");
+                              return CustomText(text: "${controller.unitPrice}");
                             }
                         )
                       ],

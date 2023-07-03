@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/src/picture_provider.dart';
+// import 'package:flutter_svg/src/picture_provider.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:project_ecommerce/constants.dart';
@@ -91,7 +90,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   ),),
                (Get.height*.025).height,
                CustomButton.buttonStyle(
-                   onPressed: () {}, text: 'Continue Shaping', paddingHorizontal: Get.width*.2,
+                   onPressed: () {}, text: 'Continue Shipping', paddingHorizontal: Get.width*.2,
                    colorButton: Constants.primaryColor,
                    borderSize: 50),
 
