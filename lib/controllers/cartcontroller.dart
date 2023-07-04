@@ -7,7 +7,7 @@ class CartController extends GetxController {
   RxBool hideItem = false.obs;
   RxDouble totalPrice = 0.0.obs;
   RxDouble shipping = 0.0.obs;
-  RxDouble unitPrice = 0.0.obs;
+  RxDouble currentPrice = 0.0.obs;
   RxList<CartItemWidget> items = RxList();
 
 

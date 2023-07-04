@@ -1,3 +1,5 @@
+import 'package:flutter_svg/svg.dart';
+
 import '../constants.dart';
 import '../controllers/cartcontroller.dart';
 import '../main.dart';
@@ -20,8 +22,9 @@ class CartPage extends GetView<SettingsServices> {
       appBar: AppBar(
         title: const Text("bill"),
         elevation: 0.0,
+        foregroundColor: Constants.fontBlackColor,
         backgroundColor: Constants.backGroundColor,
-        // leading: IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/svg/back.svg')),
+        leading: IconButton(onPressed: (){Get.back();}, icon: SvgPicture.asset('assets/svg/back.svg'),color: Constants.fontBlackColor,),
       ),
       // color: Color(rgb(232, 240, 253)),
       //بإمكانك تغيير لون الخلفية من هون /\
@@ -97,7 +100,7 @@ class CartPage extends GetView<SettingsServices> {
                         GetBuilder(
                             init: CartController(),
                             builder: (controller) {
-                              return CustomText("${controller.unitPrice}");
+                              return CustomText("${controller.currentPrice}");
                             }
                         )
                       ],

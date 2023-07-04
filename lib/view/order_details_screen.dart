@@ -73,7 +73,7 @@ class OrderDetailsScreen extends StatelessWidget {
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: [
                            CustomText('Shoe',fontsize: 15),
-                           CustomText('\$${setServ.cartController.unitPrice}',fontsize: 15),
+                           CustomText('\$${setServ.cartController.currentPrice}',fontsize: 15),
 
                          ],
                        ),
