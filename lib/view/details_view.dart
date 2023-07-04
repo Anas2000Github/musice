@@ -34,163 +34,127 @@ class DetailsView extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         // leading: IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/svg/back.svg')),
+        foregroundColor: Constants.fontBlackColor,
       ),
       backgroundColor: Constants.backGroundColor,
       body: ListView(
         children: [
-          Expanded(
-            flex: 4,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomText("$price"),
-                Image.asset(imgPath!,width: Get.size.width,height: 250,),
-              ],
-            ),
+          CustomText("$price"),
+          Image.asset(imgPath!,width: Get.size.width,height: 250,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomText("$productName"),
+              // Text(prcStr),
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        increment();
+                      },
+                      icon: const Icon(CupertinoIcons.plus_circle)),
+                  GetBuilder<CartController>(
+                      init: Get.put(CartController()),
+                      builder: (cartController) {
+                        return CustomText("${quantity.value}");
+                      }),
+                  IconButton(
+                      onPressed: () {
+                        decrement();
+                      },
+                      icon: const Icon(CupertinoIcons.minus_circle))
+                ],
+              ),
+
+            ],
           ),
-          Expanded(
-            flex: 4,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                //عرض تفاصيل المنتج
-                // DetailItemWidget(
-                //   imgPath: imgPath!,
-                //   id: id!,
-                //     price: price!,
-                //   productName: productName!,
-                //   smallPics: [],
-                // ),
-                Expanded(
-                  flex: 4,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      //10.height,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          CustomText("$productName"),
-                          // Text(prcStr),
-                          Row(
-                            children: [
-                              IconButton(
-                                  onPressed: () {
-                                    increment();
-                                  },
-                                  icon: const Icon(CupertinoIcons.plus_circle)),
-                              GetBuilder<CartController>(
-                                  init: Get.put(CartController()),
-                                  builder: (cartController) {
-                                    return CustomText("${quantity.value}");
-                                  }),
-                              IconButton(
-                                  onPressed: () {
-                                    decrement();
-                                  },
-                                  icon: const Icon(CupertinoIcons.minus_circle))
-                            ],
-                          ),
-
-                        ],
-                      ),
-                      CustomText("Select color"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SmallPic(imagePath: smallPics![0],),
-                          SmallPic(imagePath: smallPics![1],),
-                          SmallPic(imagePath: smallPics![2],),
-                          SmallPic(imagePath: smallPics![3],),
-                        ],
-                      ),
-                      CustomText("Select size"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          BoxOfSize(size: "41",),
-                          BoxOfSize(size: "42",),
-                          BoxOfSize(size: "43",),
-                          BoxOfSize(size: "44",),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                //Total
-                Expanded(
-                  flex: 4,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CustomText(
-                        "Total",
-                      ),
-                      GetBuilder<CartController>(
-                          builder: (controller) {
-                            return CustomText("${controller.totalPrice}");
-                          }
-                      )
-                    ],
-                  ),
-                ),
-                //Shipping
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      "Shipping",
-                    ),
-                    GetBuilder<CartController>(
-
-                        builder: (controller) {
-                          return CustomText("${controller.shipping}");
-                        }
-                    )
-                  ],
-                ),
-                //Shoe's price
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomText(
-                      "Shoes",
-                    ),
-                    GetBuilder(
-                        init: CartController(),
-                        builder: (controller) {
-                          return CustomText("${controller.unitPrice}");
-                        }
-                    )
-                  ],
-                ),
-                //زر إنهاء الشراء
-                TextButton(
-                    onPressed: () {
-                      //todo: إنهاء عملية الشراء
-
-                    },
-                    child: Container(
-                      width: 500,
-                      height: 60,
-                      constraints: const BoxConstraints(
-                          maxHeight: 100,
-                          maxWidth: 600,
-                          minHeight: 5,
-                          minWidth: 50),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.blue[900],
-                      ),
-                      child: Center(
-                          child: Image.asset("$imgPath",height: 50,width: 50,)),
-                    ))
-                //نهاية الزر
-              ],
-            ),
+          CustomText("Select color", textAlign: TextAlign.start,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SmallPic(imagePath: smallPics![0],),
+              SmallPic(imagePath: smallPics![1],),
+              SmallPic(imagePath: smallPics![2],),
+              SmallPic(imagePath: smallPics![3],),
+            ],
           ),
+          CustomText("Select size", textAlign: TextAlign.start,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              BoxOfSize(size: "41",),
+              BoxOfSize(size: "42",),
+              BoxOfSize(size: "43",),
+              BoxOfSize(size: "44",),
+            ],
+          ),
+          //Total
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomText(
+                "Total",
+              ),
+              GetBuilder<CartController>(
+                  builder: (controller) {
+                    return CustomText("${controller.totalPrice}");
+                  }
+              )
+            ],
+          ),
+          //Shipping
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomText(
+                "Shipping",
+              ),
+              GetBuilder<CartController>(
+
+                  builder: (controller) {
+                    return CustomText("${controller.shipping}");
+                  }
+              )
+            ],
+          ),
+          //Shoe's price
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CustomText(
+                "Shoes",
+              ),
+              GetBuilder(
+                  init: CartController(),
+                  builder: (controller) {
+                    return CustomText("${controller.unitPrice}");
+                  }
+              )
+            ],
+          ),
+          //زر إنهاء الشراء
+          TextButton(
+              onPressed: () {
+                //todo: إنهاء عملية الشراء
+
+              },
+              child: Container(
+                width: 500,
+                height: 60,
+                constraints: const BoxConstraints(
+                    maxHeight: 100,
+                    maxWidth: 600,
+                    minHeight: 5,
+                    minWidth: 50),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.blue[900],
+                ),
+                child: Center(
+                    child: Image.asset("$imgPath",height: 50,width: 50,)),
+              )),
         ],
       ) ,
     );
