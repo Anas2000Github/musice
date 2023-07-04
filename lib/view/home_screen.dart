@@ -41,14 +41,14 @@ class HomeScreen extends StatelessWidget {
                                SizedBox(
                                  width: Get.width*.29,
                                  child: CustomText(
-                                   text: 'Hello'.tr,
+                                   'Hello'.tr,
                                    fontsize: 14,
                                    fontWeight: FontWeight.w400,
                                    color: Constants.fontBlackColor,
                                  ),
                                ),
                                CustomText(
-                                 text: 'Anas Abdallah'.tr,
+                                 'Anas Abdallah'.tr,
                                  fontsize: 15,
                                  fontWeight: FontWeight.w400,
                                  color: Constants.fontColor,
@@ -93,14 +93,14 @@ class HomeScreen extends StatelessWidget {
                                     RotationTransition(
                                       turns:  const AlwaysStoppedAnimation(-7 / 360),
                                       child:  CustomText(
-                                        text: 'Beat Always\nHeat'.tr,
+                                        'Beat Always\nHeat'.tr,
                                         fontsize: 23,
                                         color: Constants.backGroundColor,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                     CustomText(
-                                      text: 'Only \$10.00',
+                                      'Only \$10.00',
                                       color: Colors.amber,
                                       fontsize: 23,
                                       fontWeight: FontWeight.w600,
@@ -147,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                               padding: const EdgeInsets.only(bottom: 5),
                               alignment: Alignment.bottomCenter,
                               child: CustomText(
-                                text: 'Camera',
+                                'Camera',
                                 color: Constants.backGroundColor,
                                 fontWeight: FontWeight.w500,
                                 fontsize: 12.5,
@@ -215,7 +215,7 @@ class HomeScreen extends StatelessWidget {
                                     5.height,
                                     CustomText(
                                       alignment: Alignment.topLeft,
-                                      text: 'Zigzag HeadPhone',
+                                      'Zigzag HeadPhone',
                                       color: Constants.fontColor,
                                       fontWeight: FontWeight.w400,
                                       fontsize: 13,
@@ -226,7 +226,7 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         CustomText(
                                           alignment: Alignment.topLeft,
-                                          text: 'wireless HeadPhone',
+                                          'wireless HeadPhone',
                                           fontWeight: FontWeight.w400,
                                           fontsize: 10,
                                         ),
@@ -242,7 +242,7 @@ class HomeScreen extends StatelessWidget {
                                             children: [
                                               const Icon(Icons.star,color: Colors.amber,size: 12,),
                                               CustomText(
-                                                text: '4.9',
+                                                '4.9',
                                                 fontsize: 10,
                                               ),
                                             ],
@@ -256,7 +256,7 @@ class HomeScreen extends StatelessWidget {
                                       children: [
                                         CustomText(
                                           alignment: Alignment.topLeft,
-                                          text: '\$35.00',
+                                          '\$35.00',
                                           color: Constants.fontColor,
                                           fontWeight: FontWeight.w400,
                                           fontsize: 13,
@@ -264,12 +264,10 @@ class HomeScreen extends StatelessWidget {
                                         const Icon(Icons.shopping_cart_outlined,color: Constants.fontColor,)
                                       ],
                                     ),
-
                                   ],
                                 ),
                               ),
                             ),
-
                           ],
                         ),
                       );
@@ -279,7 +277,7 @@ class HomeScreen extends StatelessWidget {
                  ),
               CustomText(
                   alignment: Alignment.topLeft,
-                  text: 'Special For Gaming',
+                  'Special For Gaming',
               ),
               SizedBox(
                 width: Get.width,
@@ -333,20 +331,20 @@ class HomeScreen extends StatelessWidget {
                                               children: [
                                                 CustomText(
                                                   alignment: Alignment.topLeft,
-                                                  text: 'Game Controller',
+                                                  'Game Controller',
                                                   color: Constants.fontColor,
                                                   fontWeight: FontWeight.w600,
                                                   fontsize: 15,
                                                 ),
                                                 CustomText(
                                                   alignment: Alignment.topLeft,
-                                                  text: 'Fast Work',
+                                                  'Fast Work',
                                                   fontWeight: FontWeight.w400,
                                                   fontsize: 13,
                                                 ),
                                                 CustomText(
                                                   alignment: Alignment.topLeft,
-                                                  text: '\$50.00',
+                                                  '\$50.00',
                                                   color: Constants.fontColor,
                                                   fontWeight: FontWeight.w400,
                                                   fontsize: 15,
@@ -382,7 +380,7 @@ class HomeScreen extends StatelessWidget {
                                                   children: [
                                                     const Icon(Icons.star,color: Colors.amber,size: 15,),
                                                     CustomText(
-                                                      text: '4.9',
+                                                      '4.9',
                                                       fontsize: 10,
                                                     ),
                                                   ],

@@ -32,7 +32,7 @@ class CustomButtonSocialMedia {
           children: [
             Image.asset(imageUrl!),
             SizedBox(width: Get.width*.1,),
-            CustomText(text: text,
+            CustomText(text,
               fontsize: 14,)
           ],),
       ),

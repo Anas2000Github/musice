@@ -26,7 +26,7 @@ class DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  CustomText(text:"Details view"),
+        title:  CustomText("Details view"),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         // leading: IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/svg/back.svg')),
@@ -66,11 +66,11 @@ class DetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                    text: "Total",
+                    "Total",
                   ),
                   GetBuilder<CartController>(
                       builder: (controller) {
-                        return CustomText(text: "${controller.totalPrice}");
+                        return CustomText("${controller.totalPrice}");
                       }
                   )
                 ],
@@ -80,12 +80,12 @@ class DetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                    text:"Shipping",
+                    "Shipping",
                   ),
                   GetBuilder<CartController>(
 
                       builder: (controller) {
-                        return CustomText(text: "${controller.shipping}");
+                        return CustomText("${controller.shipping}");
                       }
                   )
                 ],
@@ -95,12 +95,12 @@ class DetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                    text:"Shoes",
+                    "Shoes",
                   ),
                   GetBuilder(
                       init: CartController(),
                       builder: (controller) {
-                        return CustomText(text: "${controller.unitPrice}");
+                        return CustomText("${controller.unitPrice}");
                       }
                   )
                 ],

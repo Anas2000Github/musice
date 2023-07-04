@@ -26,7 +26,7 @@ class CustomButton {
       onPressed: onPressed,
       color: colorButton,
       child: CustomText(
-        text: text,
+        text,
         fontsize: 18,
         color: colorText,
       ),

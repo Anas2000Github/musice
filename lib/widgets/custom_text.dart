@@ -15,8 +15,8 @@ class CustomText extends StatelessWidget{
  final  TextAlign? textAlign;
   double? wordSpacing;
 
- CustomText( {
-   this.text='',
+ CustomText( this.text,{
+
    this.fontsize=16,
    this.color,
    this.fontWeight= FontWeight.normal,

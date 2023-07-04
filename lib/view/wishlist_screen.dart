@@ -85,7 +85,7 @@ class WishListScreen extends StatelessWidget {
                                 5.height,
                                 CustomText(
                                   alignment: Alignment.topLeft,
-                                  text: 'Zigzag HeadPhone',
+                                  'Zigzag HeadPhone',
                                   color: Constants.fontColor,
                                   fontWeight: FontWeight.w400,
                                   fontsize: 13,
@@ -97,7 +97,7 @@ class WishListScreen extends StatelessWidget {
                                   children: [
                                     CustomText(
                                       alignment: Alignment.topLeft,
-                                      text: 'wireless HeadPhone',
+                                      'wireless HeadPhone',
                                       fontWeight: FontWeight.w400,
                                       fontsize: 10,
                                     ),
@@ -117,7 +117,7 @@ class WishListScreen extends StatelessWidget {
                                             Icons.star, color: Colors.amber,
                                             size: 12,),
                                           CustomText(
-                                            text: '4.9',
+                                            '4.9',
                                             fontsize: 10,
                                           ),
                                         ],
@@ -132,7 +132,7 @@ class WishListScreen extends StatelessWidget {
                                   children: [
                                     CustomText(
                                       alignment: Alignment.topLeft,
-                                      text: '\$35.00',
+                                      '\$35.00',
                                       color: Constants.fontColor,
                                       fontWeight: FontWeight.w400,
                                       fontsize: 13,

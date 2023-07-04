@@ -16,7 +16,7 @@ class CustomListTile {
       child: ListTile(
         onTap: onPressed,
         title: CustomText(
-          text: text,
+          text,
         ),
         leading: Image.asset(
             imageUrl.toString()),

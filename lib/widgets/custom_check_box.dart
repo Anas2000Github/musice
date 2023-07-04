@@ -29,7 +29,7 @@ class CustomBox {
             onChanged: onChanged,
           ),
           CustomText(
-            text:text,
+            text,
           ),
         ],
       ),

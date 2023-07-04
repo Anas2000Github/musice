@@ -44,7 +44,7 @@ class OrderDetailsScreen extends StatelessWidget {
                  child: Container(
                     width: Get.width*.5,
                     alignment: Alignment.center,
-                    child: CustomText(text:'Hey, Jarif \nThank You For Purchase',textAlign: TextAlign.center,fontsize: 18,height: 1.5,color: Constants.fontColor,),),
+                    child: CustomText('Hey, Jarif \nThank You For Purchase',textAlign: TextAlign.center,fontsize: 18,height: 1.5,color: Constants.fontColor,),),
                ),
               Container(
                   height: Get.height*.3,
@@ -55,16 +55,16 @@ class OrderDetailsScreen extends StatelessWidget {
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          crossAxisAlignment: CrossAxisAlignment.center,
                          children: [
-                           CustomText(text:'Total',fontsize: 15),
-                           CustomText(text:'\$${setServ.cartController.totalPrice}',fontsize: 15),
+                           CustomText('Total',fontsize: 15),
+                           CustomText('\$${setServ.cartController.totalPrice}',fontsize: 15),
                          ],
                        ),
                        5.height,
                        Row(
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: [
-                           CustomText(text:'Shipping',fontsize: 15),
-                           CustomText(text:'\$${setServ.cartController.shipping}',fontsize: 15),
+                           CustomText('Shipping',fontsize: 15),
+                           CustomText('\$${setServ.cartController.shipping}',fontsize: 15),
 
                          ],
                        ),
@@ -72,8 +72,8 @@ class OrderDetailsScreen extends StatelessWidget {
                        Row(
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: [
-                           CustomText(text:'Shoe',fontsize: 15),
-                           CustomText(text:'\$${setServ.cartController.unitPrice}',fontsize: 15),
+                           CustomText('Shoe',fontsize: 15),
+                           CustomText('\$${setServ.cartController.unitPrice}',fontsize: 15),
 
                          ],
                        ),

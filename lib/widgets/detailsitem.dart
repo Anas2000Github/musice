@@ -51,7 +51,7 @@ class DetailItemWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomText(text:"$price"),
+            CustomText("$price"),
             Container(
               decoration: BoxDecoration(
                 image: DecorationImage(image:AssetImage(
@@ -65,7 +65,7 @@ class DetailItemWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CustomText(text:"$productName"),
+                CustomText("$productName"),
                 // Text(prcStr),
                 Row(
                   children: [
@@ -77,7 +77,7 @@ class DetailItemWidget extends StatelessWidget {
                     GetBuilder<CartController>(
                         init: Get.put(CartController()),
                         builder: (cartController) {
-                          return CustomText(text:"${quantity.value}");
+                          return CustomText("${quantity.value}");
                         }),
                     IconButton(
                         onPressed: () {
@@ -89,7 +89,7 @@ class DetailItemWidget extends StatelessWidget {
 
               ],
             ),
-            CustomText(text:"Select color"),
+            CustomText("Select color"),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -99,7 +99,7 @@ class DetailItemWidget extends StatelessWidget {
                 SmallPic(imagePath: smallPics![3],),
               ],
             ),
-            CustomText(text:"Select size"),
+            CustomText("Select size"),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

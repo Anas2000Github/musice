@@ -52,14 +52,14 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
               listBox2('Tage'),
               10.height,
               CustomText(
-                text: 'Price Range',
+                'Price Range',
                 fontsize: 21,
                 color: Constants.fontColor,
                 alignment: Alignment.topLeft,
               ),
               10.height,
               CustomText(
-                text: '\$$_value',
+                '\$$_value',
                 fontsize: 21,
                 color: Constants.fontColor,
                 alignment: Alignment.topLeft,
@@ -106,7 +106,7 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
                       padding: EdgeInsets.symmetric(vertical: 20),
                       children: [
                         CustomText(
-                          text: textTile,
+                          textTile,
                           fontsize: 21,
                           color: Constants.fontColor,
                         ),
@@ -168,7 +168,7 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
                   padding: EdgeInsets.all(5),
                   children: [
                     CustomText(
-                      text: textTile,
+                      textTile,
                       fontsize: 21,
                       color: Constants.fontColor,
                     ),
@@ -236,7 +236,7 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
                   padding: EdgeInsets.all(5),
                   children: [
                     CustomText(
-                      text: textTile,
+                      textTile,
                       fontsize: 21,
                       color: Constants.fontColor,
                     ),

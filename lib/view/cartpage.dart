@@ -63,11 +63,11 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          text: "Total",
+                          "Total",
                         ),
                         GetBuilder<CartController>(
                             builder: (controller) {
-                              return CustomText(text: "${controller.totalPrice}");
+                              return CustomText("${controller.totalPrice}");
                             }
                         )
                       ],
@@ -77,12 +77,12 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          text:"Shipping",
+                          "Shipping",
                         ),
                         GetBuilder<CartController>(
 
                             builder: (controller) {
-                              return CustomText(text: "${controller.shipping}");
+                              return CustomText("${controller.shipping}");
                             }
                         )
                       ],
@@ -92,12 +92,12 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          text:"Shoes",
+                          "Shoes",
                         ),
                         GetBuilder(
                             init: CartController(),
                             builder: (controller) {
-                              return CustomText(text: "${controller.unitPrice}");
+                              return CustomText("${controller.unitPrice}");
                             }
                         )
                       ],
