@@ -1,15 +1,10 @@
-import '../view/details_view.dart';
 import '../widgets/productItem.dart';
 
 import '../constants.dart';
-import '../widgets/cartitem.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
-import '../controllers/cartcontroller.dart';
-import '../main.dart';
 import '../services/settingssettings.dart';
-import '../widgets/cartitem.dart';
 
 class Temp1 extends GetView<SettingsServices> {
   Temp1({Key? key}) : super(key: key);
