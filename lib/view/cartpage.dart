@@ -36,20 +36,20 @@ class CartPage extends GetView<SettingsServices> {
             children: [
               GetBuilder<CartController>(
 
-                  builder: (context) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children:
-                      //هنا يتم عرض الأغراض المضافة
+                builder: (context) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children:
+                        //هنا يتم عرض الأغراض المضافة
 
-                      setServ.cartController.items.map((e)  {
-                        return e;
-                      }).toList(),
+                        setServ.cartController.items.map((e)  {
+                            return e;
+                        }).toList(),
 
-                      //} نهاية عرض الأغراض
-                    );
-                  }
+                    //} نهاية عرض الأغراض
+                  );
+                }
               ),
               //مسافة 50
               const SizedBox(
@@ -69,9 +69,9 @@ class CartPage extends GetView<SettingsServices> {
                           "Total",
                         ),
                         GetBuilder<CartController>(
-                            builder: (controller) {
-                              return CustomText("${controller.totalPrice}");
-                            }
+                          builder: (controller) {
+                            return CustomText("${controller.totalPrice}");
+                          }
                         )
                       ],
                     ),
@@ -84,9 +84,9 @@ class CartPage extends GetView<SettingsServices> {
                         ),
                         GetBuilder<CartController>(
 
-                            builder: (controller) {
-                              return CustomText("${controller.shipping}");
-                            }
+                          builder: (controller) {
+                            return CustomText("${controller.shipping}");
+                          }
                         )
                       ],
                     ),
@@ -98,10 +98,10 @@ class CartPage extends GetView<SettingsServices> {
                           "Shoes",
                         ),
                         GetBuilder(
-                            init: CartController(),
-                            builder: (controller) {
-                              return CustomText("${controller.currentPrice}");
-                            }
+                          init: CartController(),
+                          builder: (controller) {
+                            return CustomText("${controller.currentPrice}");
+                          }
                         )
                       ],
                     ),
@@ -130,9 +130,9 @@ class CartPage extends GetView<SettingsServices> {
                     ),
                     child: const Center(
                         child: Text(
-                          /*------->*/ "Proceed to Checkout", //<------
-                          style: TextStyle(fontSize: 20, color: Colors.white),
-                        )),
+                      /*------->*/ "Proceed to Checkout", //<------
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    )),
                   ))
               //نهاية الزر
             ],

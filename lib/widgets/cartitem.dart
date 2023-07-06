@@ -11,7 +11,9 @@ class CartItemWidget extends StatelessWidget {
   final String? id;
   final String? imgPath;
   final String? productName;
-  final String? price;
+  String? price;
+  String? description;
+  double? rate;
   RxInt quantity = 1.obs;
 
   // const List<CartItemWidget> cartItemWidgets ;
@@ -22,6 +24,8 @@ class CartItemWidget extends StatelessWidget {
     this.imgPath,
     this.productName,
     this.price,
+    this.description,
+    this.rate
   }) : super(key: key);
 
   @override

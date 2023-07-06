@@ -6,9 +6,12 @@ import '../view/details_view.dart';
 import 'cartitem.dart';
 class ProductItem extends StatelessWidget {
   final String? id;
-    final  String? price;
+  final String? imgPath;
   final String? productName;
-      final String? imgPath;
+  String? price;
+  String? description;
+  double? rate;
+  RxInt quantity = 1.obs;
    List<String>? smallPics ;
 
   ProductItem({Key? key,
@@ -16,6 +19,8 @@ class ProductItem extends StatelessWidget {
     this.price,
     this.productName,
     this.imgPath,
+    this.description,
+    this.rate,
     this.smallPics}) : super(key: key);
 
   @override

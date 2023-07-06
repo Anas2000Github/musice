@@ -16,7 +16,9 @@ class DetailsView extends StatelessWidget {
   final String? id;
   final String? imgPath;
   final String? productName;
-  final String? price;
+  String? price;
+  String? description;
+  double? rate;
   List<String>? smallPics;
   RxInt quantity = 1.obs;
   DetailsView({
@@ -25,6 +27,8 @@ class DetailsView extends StatelessWidget {
     this.imgPath,
     this.productName,
     this.price,
+    this.description,
+    this.rate,
     this.smallPics}) : super(key: key);
 
   @override
