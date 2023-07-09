@@ -7,7 +7,7 @@ import '../constants.dart';
 import '../widgets/custom_text.dart';
 
 class WishListScreen extends StatelessWidget {
-   WishListScreen({Key? key}) : super(key: key);
+   const WishListScreen({Key? key}) : super(key: key);
 
    static const kMobileBreakpoint = 576;
    static const kTabletBreakpoint = 1024;

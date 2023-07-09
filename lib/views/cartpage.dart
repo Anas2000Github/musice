@@ -14,7 +14,6 @@ import '../widgets/custom_text.dart';
 class CartPage extends GetView<SettingsServices> {
   CartPage({Key? key}) : super(key: key);
   RxBool updated=false.obs;
-  //ثوابت يجب تغييرها
 
   @override
   Widget build(BuildContext context) {

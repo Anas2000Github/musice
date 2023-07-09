@@ -37,7 +37,7 @@ class DetailsView extends StatelessWidget {
 
       appBar: AppBar(
         centerTitle: true,
-        title:  Center(child: CustomText("Details view",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
+        title:  Center(child: CustomText("Details view".tr,textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         leading: IconButton(onPressed: (){
@@ -52,7 +52,7 @@ class DetailsView extends StatelessWidget {
       ),
       backgroundColor: Constants.backGroundColor,
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Container(
           padding: const EdgeInsets.all(5.0),
           margin: const EdgeInsets.symmetric(vertical: 5) ,
@@ -65,8 +65,9 @@ class DetailsView extends StatelessWidget {
               GetBuilder(
                 init: DetailsController(),
                 builder: (detailsController) {
-                  if(detailsController.getImagePath() != "")
+                  if(detailsController.getImagePath() != "") {
                     return Image.asset(detailsController.getImagePath(),width: Get.size.width,height: 250,);
+                  }
                   return Image.asset(imgPath!,width: Get.size.width,height: 250,);
                 }
               ),
@@ -168,7 +169,8 @@ class DetailsView extends StatelessWidget {
               TextButton(
                   onPressed: () {
                     //todo: إنهاء عملية الشراء
-
+                    //todo:  ربط فايربيس
+                    //todo: الإنتقال إلى صفحة الدفع
                   },
                   child: Container(
                     width: 500,

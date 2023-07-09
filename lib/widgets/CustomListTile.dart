@@ -20,7 +20,7 @@ class CustomListTile {
         ),
         leading: Image.asset(
             imageUrl.toString()),
-        trailing: Icon(
+        trailing: const Icon(
           Icons.navigate_next,
           color: Colors.black,
         ),

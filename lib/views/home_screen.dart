@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:project_ecommerce/helper/sized_box_enum.dart';
-import 'package:project_ecommerce/main.dart';
-import 'package:project_ecommerce/views/details_view.dart';
 import 'package:project_ecommerce/widgets/custom_text.dart';
 
 import '../constants.dart';

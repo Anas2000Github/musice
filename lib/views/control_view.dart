@@ -9,7 +9,7 @@ import '../view_model/control_view_model.dart';
 
 class ControlView extends StatelessWidget{
 
-   ControlView({Key? key}) : super(key: key);
+   const ControlView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

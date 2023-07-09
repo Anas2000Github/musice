@@ -22,6 +22,6 @@ class DetailsController extends GetxController{
   }
 
   String getImagePath(){
-    return this.imgPath.value;
+    return imgPath.value;
   }
 }

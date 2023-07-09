@@ -103,7 +103,7 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
                     height: Get.height*.27,
                     child: ListView(
                       shrinkWrap: false,
-                      padding: EdgeInsets.symmetric(vertical: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 20),
                       children: [
                         CustomText(
                           textTile,
@@ -165,7 +165,7 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
                 height: Get.height*.26,
                 child: ListView(
                   shrinkWrap: false,
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   children: [
                     CustomText(
                       textTile,
@@ -233,7 +233,7 @@ class _FilterColorScreenState extends State<FilterColorScreen> {
                 height: Get.height*.3,
                 child: ListView(
                   shrinkWrap: false,
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   children: [
                     CustomText(
                       textTile,

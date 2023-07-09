@@ -1,6 +1,5 @@
 import '../controllers/detailscontroller.dart';
 import '../controllers/search_controller.dart';
-import '../mysampledata.dart';
 import '../views/cartpage.dart';
 import '../views/details_view.dart';
 import '../widgets/search_item.dart';
@@ -49,7 +48,7 @@ class SearchPage extends StatelessWidget {
                   backgroundColor: Colors.amber,
                   colorText: Colors.indigo,
                   snackStyle: SnackStyle.GROUNDED,
-                  duration: Duration(seconds: 4),
+                  duration: const Duration(seconds: 4),
                   borderRadius: 15.1,
                   borderColor: Colors.black45,
                 titleText: CustomText("No products selected")
@@ -85,12 +84,12 @@ class SearchPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Constants.fontBlackColor
                 ),
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                     maxHeight: 65,
                     maxWidth: 500
                 ),
                 border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Constants.fontBlackColor),
+                  borderSide: const BorderSide(color: Constants.fontBlackColor),
                   borderRadius: BorderRadius.circular(15),
                 ),
 

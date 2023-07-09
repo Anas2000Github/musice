@@ -19,10 +19,10 @@ class CustomDelevery {
       controlAffinity: ListTileControlAffinity.trailing,
       title: Container(
         alignment: Alignment.topLeft,
-        padding: EdgeInsets.only(bottom: 10),
+        padding: const EdgeInsets.only(bottom: 10),
         child: Text(
            tiltleText!,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w500,
 
@@ -35,7 +35,7 @@ class CustomDelevery {
         alignment: Alignment.bottomLeft,
         child: Text(
         subtitleText!,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w400,
           ),

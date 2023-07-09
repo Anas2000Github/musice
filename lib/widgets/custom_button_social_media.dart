@@ -23,7 +23,7 @@ class CustomButtonSocialMedia {
         border: Border.all(width: 2,color: Colors.grey),
       ),
       child: MaterialButton(
-        padding: EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         onPressed:onPressed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
