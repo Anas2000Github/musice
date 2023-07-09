@@ -25,16 +25,54 @@ class SearchController extends GetxController {
     return searchText.value;
   }
 
-  void filterProducts(String productItem){
+  void filterProducts(String searchText){
     List<Map<String, dynamic>> result = [];
-    if(productItem.isEmpty){
+    if(searchText.isEmpty){
         result = allProductsList;
     }else{
-      result =  allProductsList.where((element) => element["name"]
-          .toString()
-          .toLowerCase()
-          .contains(productItem.toLowerCase()))
-          .toList();
+      result = allProductsList.where((element) =>
+        element["productName"]
+            .toString()
+            .toLowerCase()
+            .contains(searchText.toLowerCase())||
+          element["description"]
+              .toString()
+              .toLowerCase()
+              .contains(searchText.toLowerCase())||
+          element["rate"]
+              .toString()
+              .toLowerCase()
+              .contains(searchText.toLowerCase())||
+          element["imgPath"]
+              .toString()
+              .toLowerCase()
+              .contains(searchText.toLowerCase())
+      )
+        .toList();
+      // for(int k =0;k<allProductsList.length;k++) {
+      //   //
+      //   if(allProductsList[k]["productName"]
+      //       .toString()
+      //       .toLowerCase()
+      //       .contains(searchText.toLowerCase())||
+      //       allProductsList[k]["description"]
+      //           .toString()
+      //           .toLowerCase()
+      //           .contains(searchText.toLowerCase())||
+      //       allProductsList[k]["id"]
+      //           .toString()
+      //           .toLowerCase()
+      //           .contains(searchText)||
+      //       allProductsList[k]["imgPath"]
+      //           .toString()
+      //           .toLowerCase()
+      //           .contains(searchText)){
+      // //     foundProducts.value[k]=allProductsList[k];
+      //
+      //   }
+
+      // }
+      // result = foundProducts.value;
     }
     foundProducts.value = result;
   }

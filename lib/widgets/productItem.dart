@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../main.dart';
-import '../view/details_view.dart';
+import '../views/details_view.dart';
 import 'cartitem.dart';
 class ProductItem extends StatelessWidget {
   final String? id;

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
@@ -20,11 +21,16 @@ class CartPage extends GetView<SettingsServices> {
     // CartItemWidget ciw = CartItemWidget();
     return Scaffold(
       appBar: AppBar(
-        title: const Text("bill"),
+        centerTitle: true,
+        title:  Center(child: CustomText("Cart Page",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
-        foregroundColor: Constants.fontBlackColor,
         backgroundColor: Constants.backGroundColor,
-        leading: IconButton(onPressed: (){Get.back();}, icon: SvgPicture.asset('assets/svg/back.svg'),color: Constants.fontBlackColor,),
+        leading: IconButton(onPressed: (){
+          Get.back();},
+          icon: const Icon(CupertinoIcons.back,color: Constants
+              .fontBlackColor,)/*SvgPicture.asset('assets/svg/back.svg', color: Constants.fontBlackColor,),*/,
+          color: Constants.fontBlackColor, ),
+        foregroundColor: Constants.fontBlackColor,
       ),
       // color: Color(rgb(232, 240, 253)),
       //بإمكانك تغيير لون الخلفية من هون /\
@@ -34,25 +40,25 @@ class CartPage extends GetView<SettingsServices> {
         child: Center(
           child:
 
-            Column(
+          Column(
             children: [
               if(setServ.cartController.items.isNotEmpty)
-              GetBuilder<CartController>(
+                GetBuilder<CartController>(
 
-                builder: (context) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children:
+                    builder: (context) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children:
                         //هنا يتم عرض الأغراض المضافة
                         setServ.cartController.items.map((e){
-                            return e;
+                          return e;
                         }).toList(),
 
-                    //} نهاية عرض الأغراض
-                  );
-                }
-              ),
+                        //} نهاية عرض الأغراض
+                      );
+                    }
+                ),
               //مسافة 50
               const SizedBox(
                 height: 50,
@@ -71,9 +77,9 @@ class CartPage extends GetView<SettingsServices> {
                           "Total",
                         ),
                         GetBuilder<CartController>(
-                          builder: (controller) {
-                            return CustomText("${controller.totalPrice}");
-                          }
+                            builder: (controller) {
+                              return CustomText("${controller.totalPrice}");
+                            }
                         )
                       ],
                     ),
@@ -86,9 +92,9 @@ class CartPage extends GetView<SettingsServices> {
                         ),
                         GetBuilder<CartController>(
 
-                          builder: (controller) {
-                            return CustomText("${controller.shipping}");
-                          }
+                            builder: (controller) {
+                              return CustomText("${controller.shipping}");
+                            }
                         )
                       ],
                     ),
@@ -100,10 +106,10 @@ class CartPage extends GetView<SettingsServices> {
                           "Shoes",
                         ),
                         GetBuilder(
-                          init: CartController(),
-                          builder: (controller) {
-                            return CustomText("${controller.currentPrice}");
-                          }
+                            init: CartController(),
+                            builder: (controller) {
+                              return CustomText("${controller.currentPrice}");
+                            }
                         )
                       ],
                     ),
@@ -132,9 +138,9 @@ class CartPage extends GetView<SettingsServices> {
                     ),
                     child: const Center(
                         child: Text(
-                      /*------->*/ "Proceed to Checkout", //<------
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    )),
+                          /*------->*/ "Proceed to Checkout", //<------
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        )),
                   ))
               //نهاية الزر
             ],

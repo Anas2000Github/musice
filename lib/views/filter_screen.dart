@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:project_ecommerce/constants.dart';
 import 'package:project_ecommerce/helper/sized_box_enum.dart';
-import 'package:project_ecommerce/view/temp1.dart';
+import '../views/temp1.dart';
 import 'package:project_ecommerce/view_model/check_out_view_model.dart';
 import 'package:project_ecommerce/widgets/custom_button.dart';
 import 'package:project_ecommerce/widgets/custom_text.dart';

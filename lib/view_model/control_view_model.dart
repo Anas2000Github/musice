@@ -2,10 +2,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../view/filter_screen.dart';
-import '../view/home_screen.dart';
-import '../view/order_details_screen.dart';
-import '../view/wishlist_screen.dart';
+import '../views/filter_screen.dart';
+import '../views/home_screen.dart';
+import '../views/order_details_screen.dart';
+import '../views/wishlist_screen.dart';
 
 class ControlViewModel extends GetxController{
 

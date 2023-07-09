@@ -19,7 +19,7 @@ List<Map<String,dynamic>> allProductsList =[
     ,"smallPics":
       ["assets/images/shoes/shoes3.png",
       "assets/images/shoes/shoes3.png",
-      "assets/images/shoes/shoes1.png",
+      "assets/images/shoes/shoes1.jpg",
       "assets/images/shoes/shoes3.png"]
     ,
     "description": "The Hunter",

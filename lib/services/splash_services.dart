@@ -2,8 +2,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:project_ecommerce/view/control_view.dart';
-import 'package:project_ecommerce/view/home_screen.dart';
+import '../views/control_view.dart';
+import 'package:project_ecommerce/views/home_screen.dart';
 
 
 class SplashServices extends GetxController{

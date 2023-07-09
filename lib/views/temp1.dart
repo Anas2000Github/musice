@@ -1,5 +1,5 @@
-import '../view/details_view.dart';
-import '../view/search_page.dart';
+import '../views/details_view.dart';
+import '../views/search_page.dart';
 import '../widgets/productItem.dart';
 
 import '../constants.dart';

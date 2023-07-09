@@ -1,7 +1,8 @@
+import '../controllers/detailscontroller.dart';
 import '../controllers/search_controller.dart';
 import '../mysampledata.dart';
-import '../view/cartpage.dart';
-import '../view/details_view.dart';
+import '../views/cartpage.dart';
+import '../views/details_view.dart';
 import '../widgets/search_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,15 +18,19 @@ class SearchPage extends StatelessWidget {
 
   TextEditingController searchTextController = TextEditingController();
   SearchController searchController = Get.put(SearchController());
+  DetailsController detailsController = Get.put(DetailsController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
-        title: Center(child: CustomText("Search", textAlign: TextAlign.center,
+        centerTitle: true,
+        title: Center(child: CustomText("Search".tr, textAlign: TextAlign.center,
             color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
+
         leading: IconButton(onPressed: () {
           Get.back();
         },
@@ -37,8 +42,20 @@ class SearchPage extends StatelessWidget {
         leadingWidth: 5.0,
         actions: [
           IconButton(onPressed: () {
-            Get.to(()=>CartPage());
-          }, icon: const Icon(Icons.shopping_bag_outlined))
+            if(setServ.cartController.items.isNotEmpty){
+                  Get.to(() => CartPage());
+                }else{
+              Get.snackbar("", "Go to products page and click on a cart icon that is on every product card",
+                  backgroundColor: Colors.amber,
+                  colorText: Colors.indigo,
+                  snackStyle: SnackStyle.GROUNDED,
+                  duration: Duration(seconds: 4),
+                  borderRadius: 15.1,
+                  borderColor: Colors.black45,
+                titleText: CustomText("No products selected")
+              );
+            }
+              }, icon: const Icon(Icons.shopping_bag_outlined))
         ],
       ),
       backgroundColor: Constants.backGroundColor,
@@ -53,11 +70,11 @@ class SearchPage extends StatelessWidget {
               controller: searchTextController,
               onChanged: (value) {
                 searchController.searchText.value =value;
-                searchController.filterProducts(value);
+                searchController.filterProducts(searchController.searchText.value);
               },
               decoration: InputDecoration(
                 labelText: "Search".tr,
-                hintText: "Search...",
+                hintText: "Search...".tr,
                 suffixIcon: IconButton(onPressed: () {
                   //todo:writing filter code
 
@@ -151,7 +168,8 @@ class SearchPage extends StatelessWidget {
                   searchController.foundProducts.value[index]["smallPics"][3],
                 ],
               ));
-          setServ.cartController.incrementTotalPrice(double.parse(searchController.foundProducts.value[index]["price"]));
+          setServ.cartController.currentPrice.value= double.parse(searchController.foundProducts.value[index]["price"]);
+          setServ.cartController.incrementTotalPrice(setServ.cartController.currentPrice.value);
         },
         child: SearchItem(
           id: searchController.foundProducts.value[index]["id"],

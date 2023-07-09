@@ -34,14 +34,19 @@ class DetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
+        centerTitle: true,
         title:  Center(child: CustomText("Details view",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         leading: IconButton(onPressed: (){
+          setServ.cartController.currentPrice.value= double.parse(price!.substring(1));
+
           setServ.cartController.totalPrice = 0.0.obs;
           Get.back();},
-          icon: const Icon(Icons.arrow_back)/*SvgPicture.asset('assets/svg/back.svg', color: Constants.fontBlackColor,),*/,
+          icon: const Icon(CupertinoIcons.back,color: Constants
+              .fontBlackColor,)/*SvgPicture.asset('assets/svg/back.svg', color: Constants.fontBlackColor,),*/,
           color: Constants.fontBlackColor, ),
         foregroundColor: Constants.fontBlackColor,
       ),
@@ -76,6 +81,7 @@ class DetailsView extends StatelessWidget {
                       IconButton(
                           onPressed: () {
                             increment();
+
                           },
                           icon: const Icon(CupertinoIcons.plus_circle)),
                       GetBuilder<CartController>(
