@@ -32,8 +32,11 @@ class CartPage extends GetView<SettingsServices> {
 
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
+          child:
+
+            Column(
             children: [
+              if(setServ.cartController.items.isNotEmpty)
               GetBuilder<CartController>(
 
                 builder: (context) {
@@ -42,8 +45,7 @@ class CartPage extends GetView<SettingsServices> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children:
                         //هنا يتم عرض الأغراض المضافة
-
-                        setServ.cartController.items.map((e)  {
+                        setServ.cartController.items.map((e){
                             return e;
                         }).toList(),
 

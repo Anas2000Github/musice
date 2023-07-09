@@ -45,7 +45,8 @@ class SearchItem extends StatelessWidget{
           border: Border.all(color: Constants.fontBlackColor,width: 2)
       ),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
       children: [
         Image.asset(
           "$imgPath",
@@ -53,16 +54,17 @@ class SearchItem extends StatelessWidget{
           height: 80,
         ),
         Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomText("$productName", fontsize: 14,color: Constants.fontColor,),
-            CustomText("$description",fontsize: 5,color: Constants.fontBlackColor,),
-            CustomText("$price", fontsize: 11,)
+            CustomText("$productName", fontsize: 18,color: Constants.fontColor,fontWeight: FontWeight.bold,),
+            CustomText("$description",fontsize: 12,color: Constants.fontBlackColor,fontWeight: FontWeight.w700,),
+            CustomText("\$$price", fontsize: 16,fontWeight: FontWeight.w800,)
           ],
         ),
         SizedBox(
           width: Get.size.width * .8 / 3,
           child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Container(
@@ -72,16 +74,16 @@ class SearchItem extends StatelessWidget{
                     maxHeight: 50, maxWidth: 70
                   ),
                   decoration: BoxDecoration(
-
-                    color: Colors.amberAccent,
-                    borderRadius: BorderRadius.circular(30),
+                    color: Constants.backGroundColorAccent,
+                    borderRadius: BorderRadius.circular(20),
 
                   ) ,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Image.asset("assets/icons/star.ico",height: 10,width: 10,color: Colors.amberAccent,),
-                      CustomText("$rate",fontsize: 5, fontWeight: FontWeight.bold,)
+                      CustomText("$rate",fontsize: 10, fontWeight: FontWeight.bold,)
                     ],
                   ),
                 )

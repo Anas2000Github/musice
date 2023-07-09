@@ -52,7 +52,7 @@ class ProductItem extends StatelessWidget {
                 // );
                 setServ.cartController.currentPrice = (double.parse(price!.substring(price!.indexOf("\$")+1))).obs;
                 setServ.cartController.totalPrice = (setServ.cartController.totalPrice.value + setServ.cartController.currentPrice.value).obs;
-                Get.to(DetailsView(id: id!,
+                Get.to(()=>DetailsView(id: id!,
                   productName: productName!,
                   price: "\$${price!}",
                   imgPath: imgPath!,
