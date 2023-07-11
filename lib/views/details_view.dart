@@ -8,10 +8,8 @@ import '../controllers/cartcontroller.dart';
 import '../mysampledata.dart';
 import '../widgets/box_of_size.dart';
 import '../widgets/custom_text.dart';
-// import '../widgets/detailsitem.dart';
 import '../widgets/detailsitem_smallpic.dart';
 import '../controllers/detailscontroller.dart';
-// import 'package:flutter_svg/svg.dart';
 
 class DetailsView extends StatelessWidget {
   String? id;
@@ -52,7 +50,7 @@ class DetailsView extends StatelessWidget {
 
       appBar: AppBar(
         centerTitle: true,
-        title:  Center(child: CustomText("Details view",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
+        title:  Center(child: CustomText("Details view".tr,textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         leading: IconButton(onPressed: (){
@@ -67,7 +65,7 @@ class DetailsView extends StatelessWidget {
       ),
       backgroundColor: Constants.backGroundColor,
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Container(
           padding: const EdgeInsets.all(5.0),
           margin: const EdgeInsets.symmetric(vertical: 5) ,
@@ -80,8 +78,9 @@ class DetailsView extends StatelessWidget {
               GetBuilder(
                 init: DetailsController(),
                 builder: (detailsController) {
-                  if(detailsController.getImagePath() != "")
+                  if(detailsController.getImagePath() != "") {
                     return Image.asset(detailsController.getImagePath(),width: Get.size.width,height: 250,);
+                  }
                   return Image.asset(imgPath!,width: Get.size.width,height: 250,);
                 }
               ),
@@ -114,7 +113,7 @@ class DetailsView extends StatelessWidget {
 
                 ],
               ),
-              CustomText("Select color", textAlign: TextAlign.left,),
+              CustomText("Select color".tr, textAlign: TextAlign.left,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -124,7 +123,7 @@ class DetailsView extends StatelessWidget {
                   SmallPic(imagePath: smallPics![3],),
                 ],
               ),
-              CustomText("Select size", textAlign: TextAlign.left,),
+              CustomText("Select size".tr, textAlign: TextAlign.left,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 // crossAxisAlignment: CrossAxisAlignment.center,
@@ -140,7 +139,7 @@ class DetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                    "Total",
+                    "Total".tr,
                   ),
                   GetBuilder<CartController>(
                       builder: (controller) {
@@ -154,7 +153,7 @@ class DetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                    "Shipping",
+                    "Shipping".tr,
                   ),
                   GetBuilder<CartController>(
 
@@ -169,7 +168,7 @@ class DetailsView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CustomText(
-                    "Shoes",
+                    "Shoes".tr,
                   ),
                   GetBuilder(
                       init: CartController(),
@@ -210,7 +209,7 @@ class DetailsView extends StatelessWidget {
     quantity++;
     setServ.cartController.update();
     setServ.cartController
-        .incrementTotalPrice(double.parse(price!.substring(1)));
+        .incrementTotalPrice(double.parse(price!));
     Get.put(CartController()).update();
   }
 
@@ -219,7 +218,7 @@ class DetailsView extends StatelessWidget {
       quantity--;
       setServ.cartController.totalPrice =
           (setServ.cartController.totalPrice.value -
-              double.parse(price!.substring(1)))
+              double.parse(price!))
               .obs;
       setServ.cartController.update();
     }

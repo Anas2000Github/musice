@@ -22,7 +22,7 @@ class CartPage extends GetView<SettingsServices> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title:  Center(child: CustomText("Cart Page",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
+        title:  Center(child: CustomText("Cart Page".tr,textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         leading: IconButton(onPressed: (){
@@ -59,7 +59,7 @@ class CartPage extends GetView<SettingsServices> {
                         //} نهاية عرض الأغراض
                       );
                       }else {
-                        return CustomText("Found 0 products",
+                        return CustomText("Found 0 products".tr,
                           fontsize: 25,fontWeight: FontWeight.bold,
                           maxLines: 2, color: Colors.brown, );
                       }
@@ -80,7 +80,7 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          "Total",
+                          "Total".tr,
                         ),
                         GetBuilder<CartController>(
                             builder: (controller) {
@@ -94,7 +94,7 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          "Shipping",
+                          "Shipping".tr,
                         ),
                         GetBuilder<CartController>(
 
@@ -109,7 +109,7 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          "Shoes",
+                          "Shoes".tr,
                         ),
                         GetBuilder(
                             init: CartController(),
@@ -142,10 +142,10 @@ class CartPage extends GetView<SettingsServices> {
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.blue[900],
                     ),
-                    child: const Center(
-                        child: Text(
-                          /*------->*/ "Proceed to Checkout", //<------
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                    child: Center(
+                        child: CustomText(
+                          /*------->*/ "Proceed to Checkout".tr, //<------
+                          fontsize: 20, color: Colors.white,
                         )),
                   ))
               //نهاية الزر

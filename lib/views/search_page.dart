@@ -99,7 +99,7 @@ class SearchPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CustomText(
-                          "Found ${searchController.foundProducts.value.length} Product".tr,
+                          "Found ".tr+"${searchController.foundProducts.value.length}""Product".tr,
                           fontsize: 18, textAlign: TextAlign.left, fontWeight: FontWeight.w900,
                         color: Constants.fontBlackColor,),
                       ),
