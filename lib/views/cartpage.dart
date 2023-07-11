@@ -14,15 +14,13 @@ import '../widgets/custom_text.dart';
 class CartPage extends GetView<SettingsServices> {
   CartPage({Key? key}) : super(key: key);
   RxBool updated=false.obs;
-  //ثوابت يجب تغييرها
 
   @override
   Widget build(BuildContext context) {
-    // CartItemWidget ciw = CartItemWidget();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title:  Center(child: CustomText("Cart Page".tr,textAlign:TextAlign.center , color: Constants.fontBlackColor)),
+        title:  Center(child: CustomText("Cart Page",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         leading: IconButton(onPressed: (){
@@ -59,7 +57,7 @@ class CartPage extends GetView<SettingsServices> {
                         //} نهاية عرض الأغراض
                       );
                       }else {
-                        return CustomText("Found 0 products".tr,
+                        return CustomText("Found 0 products",
                           fontsize: 25,fontWeight: FontWeight.bold,
                           maxLines: 2, color: Colors.brown, );
                       }
@@ -80,11 +78,12 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          "Total".tr,
+                          "Total",
                         ),
                         GetBuilder<CartController>(
+                          init: CartController(),
                             builder: (controller) {
-                              return CustomText("${controller.totalPrice}");
+                              return CustomText("${controller.totalPrice.value}");
                             }
                         )
                       ],
@@ -94,7 +93,7 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          "Shipping".tr,
+                          "Shipping",
                         ),
                         GetBuilder<CartController>(
 
@@ -109,7 +108,7 @@ class CartPage extends GetView<SettingsServices> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomText(
-                          "Shoes".tr,
+                          "Shoes",
                         ),
                         GetBuilder(
                             init: CartController(),
@@ -142,10 +141,10 @@ class CartPage extends GetView<SettingsServices> {
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.blue[900],
                     ),
-                    child: Center(
-                        child: CustomText(
-                          /*------->*/ "Proceed to Checkout".tr, //<------
-                          fontsize: 20, color: Colors.white,
+                    child: const Center(
+                        child: Text(
+                          /*------->*/ "Proceed to Checkout", //<------
+                          style: TextStyle(fontSize: 20, color: Colors.white),
                         )),
                   ))
               //نهاية الزر

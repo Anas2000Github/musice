@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import '../constants.dart';
 
 class SearchItem extends StatelessWidget{
-  final String? id;
-  final String? imgPath;
-  final String? productName;
+  String? id;
+  String? imgPath;
+  String? productName;
   String? price;
   String? description;
   double? rate;
@@ -70,7 +70,7 @@ class SearchItem extends StatelessWidget{
                 Container(
 
                   padding: const EdgeInsets.all(1.0),
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     maxHeight: 50, maxWidth: 70
                   ),
                   decoration: BoxDecoration(

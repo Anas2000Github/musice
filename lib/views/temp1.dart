@@ -1,10 +1,12 @@
-import '../views/search_page.dart';
-import '../widgets/productItem.dart';
+import 'package:project_ecommerce/views/search_page.dart';
+
 import '../constants.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+
 import '../services/settingssettings.dart';
 import '../widgets/custom_text.dart';
+import '../widgets/productItem.dart';
 
 class Temp1 extends GetView<SettingsServices> {
   Temp1({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class Temp1 extends GetView<SettingsServices> {
             children: [
 
               ProductItem(
-                id:"5"),
+                id:"4"),
               ProductItem(id:"2"),
               ProductItem(id:"3"),
             SizedBox(

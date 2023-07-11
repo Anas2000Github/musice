@@ -1,16 +1,16 @@
-import '../controllers/detailscontroller.dart';
-import '../controllers/search_controller.dart';
-import '../views/cartpage.dart';
-import '../views/details_view.dart';
-import '../widgets/search_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../constants.dart';
+import '../controllers/detailscontroller.dart';
+import '../controllers/search_controller.dart';
 import '../main.dart';
 import '../widgets/custom_text.dart';
+import '../widgets/search_item.dart';
+import 'cartpage.dart';
+import 'details_view.dart';
 
 class SearchPage extends StatelessWidget {
   SearchPage({Key? key}) : super(key: key);
@@ -40,7 +40,10 @@ class SearchPage extends StatelessWidget {
         foregroundColor: Constants.fontBlackColor,
         leadingWidth: 5.0,
         actions: [
+
+          //كبسة الإنتقال إلى سلة المشتريات
           IconButton(onPressed: () {
+
                   Get.to(() => CartPage());
 
               }, icon: const Icon(Icons.shopping_bag_outlined))
@@ -99,7 +102,7 @@ class SearchPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CustomText(
-                          "Found ".tr+"${searchController.foundProducts.value.length}""Product".tr,
+                          "Found ${searchController.foundProducts.value.length} Product".tr,
                           fontsize: 18, textAlign: TextAlign.left, fontWeight: FontWeight.w900,
                         color: Constants.fontBlackColor,),
                       ),

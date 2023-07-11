@@ -1,5 +1,3 @@
-// import 'dart:ffi';
-
 import '../controllers/cartcontroller.dart';
 import '../widgets/cartitem.dart';
 import 'package:flutter/foundation.dart';
@@ -12,22 +10,21 @@ class SettingsServices extends GetxService{
 
 
 // todo : هذا الميثود الذي يُضيف المنتج في سلة المشتريات
-  void addItemtoCart(CartItemWidget product){
+  void addItemtoCart(String id){
     bool itemsContainsProduct =false;
     if(cartController.items.isEmpty) {
-      cartController.items.add(product);
-      cartController.incrementTotalPrice(double.parse(cartController.items.last.price!.substring(1)));
-      cartController.update();}
+      cartController.items.add(CartItemWidget(id:id));
+    cartController.incrementTotalPrice(cartController.currentPrice.value);
+    cartController.update();}
     else{
       for (int i = 0; i < cartController.items.length; i++) {
-        if (cartController.items[i].id == product.id) {
+        if (cartController.items[i].id == id) {
           itemsContainsProduct = true;
         }
       }
       if(itemsContainsProduct == false){
-        cartController.items.add(product);
-        cartController.incrementTotalPrice(
-            double.parse(cartController.items.last.price!.substring(1)));
+        cartController.items.add(CartItemWidget(id:id));
+        cartController.incrementTotalPrice(cartController.currentPrice.value);
         cartController.update();
       }
     }
@@ -40,19 +37,19 @@ class SettingsServices extends GetxService{
     int count = itemData.quantity.value;
     while(count>0){
 
-      cartController.decrementTotalPrice(
-          double.parse(itemData.price!));
-      count--;
+        cartController.decrementTotalPrice(
+            double.parse(itemData.price!));
+        count--;
 
     }
     // cartController.hideItem = true.obs;
 
-    try {
+       try {
       cartController.items.removeAt(cartController.items.indexOf(itemData));
     }catch(e){
-      print("$e\n${cartController.items.indexOf(itemData)}");
+    print("$e\n${cartController.items.indexOf(itemData)}");
 
-    }
+       }
     cartController.update();
 
     // cartController.remove(index)

@@ -1,7 +1,6 @@
 import '../main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../constants.dart';
 import '../controllers/cartcontroller.dart';
@@ -50,11 +49,11 @@ class DetailsView extends StatelessWidget {
 
       appBar: AppBar(
         centerTitle: true,
-        title:  Center(child: CustomText("Details view".tr,textAlign:TextAlign.center , color: Constants.fontBlackColor)),
+        title:  Center(child: CustomText("Details view",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         leading: IconButton(onPressed: (){
-          setServ.cartController.currentPrice.value= double.parse(price!.substring(1));
+          setServ.cartController.currentPrice.value= double.parse(price!);
 
           setServ.cartController.totalPrice = 0.0.obs;
           Get.back();},
@@ -78,9 +77,6 @@ class DetailsView extends StatelessWidget {
               GetBuilder(
                 init: DetailsController(),
                 builder: (detailsController) {
-                  if(detailsController.getImagePath() != "") {
-                    return Image.asset(detailsController.getImagePath(),width: Get.size.width,height: 250,);
-                  }
                   return Image.asset(imgPath!,width: Get.size.width,height: 250,);
                 }
               ),
@@ -173,7 +169,7 @@ class DetailsView extends StatelessWidget {
                   GetBuilder(
                       init: CartController(),
                       builder: (controller) {
-                        return CustomText("${controller.currentPrice}");
+                        return CustomText("$price");
                       }
                   )
                 ],

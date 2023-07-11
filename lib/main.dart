@@ -20,11 +20,7 @@ void main() async {
       builder: (context) => const MyApp(),
   ));
 }
-// Future initialServices () async {
-//
-//   // setServ = await Get.putAsync(() => SettingsServices().init());
-//   return setServ;
-// }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

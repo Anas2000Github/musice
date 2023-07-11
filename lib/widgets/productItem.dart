@@ -1,8 +1,8 @@
-import '../mysampledata.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../main.dart';
+import '../mysampledata.dart';
 import '../views/details_view.dart';
 import 'cartitem.dart';
 class ProductItem extends StatelessWidget {
@@ -54,27 +54,11 @@ class ProductItem extends StatelessWidget {
           children: [
             InkWell(
               onTap:(){
-                // Get.to(DetailsView(id: "2",
-                //   productName: "prod2",
-                //   price: "\$18",
-                //   imgPath:
-                //   "assets/images/shoes/shoes2.png",
-                //   smallPics: const [
-                //     "assets/images/shoes/shoes2.png",
-                //     "assets/images/shoes/shoes2.png",
-                //     "assets/images/shoes/shoes2.png",
-                //     "assets/images/shoes/shoes2.png",],),
-                // );
 
-                if(id!.isNotEmpty)
-                {setServ.cartController.currentPrice = (double.parse(price!)).obs;
+                setServ.cartController.currentPrice = (double.parse(price!)).obs;
                 setServ.cartController.totalPrice = (setServ.cartController.totalPrice.value + setServ.cartController.currentPrice.value).obs;
-                Get.to(()=>DetailsView(id: id!,
-                  productName: productName!,
-                  price: "\$${price!}",
-                  imgPath: imgPath!,
-                  smallPics: smallPics!),
-                );}
+                Get.to(()=>DetailsView(id: id!),
+                );
 
               },
               child: Image.asset(imgPath!,
@@ -83,15 +67,9 @@ class ProductItem extends StatelessWidget {
             InkWell(
               onTap: (){
                 if(id!.isNotEmpty){
+                  setServ.cartController.currentPrice = (double.parse(price!)).obs;
                   setServ.addItemtoCart(
-                    CartItemWidget(
-                      id: id!,
-                      productName: productName!,
-                      price: "\$${price!}",
-                      imgPath: imgPath!,
-                      rate: rate!,
-                      description: description,
-                    ),
+                    id!
                   );
                   Get.toNamed("/cartPage");
                 }
