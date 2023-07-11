@@ -1,10 +1,8 @@
 import '../views/search_page.dart';
 import '../widgets/productItem.dart';
-
 import '../constants.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-
 import '../services/settingssettings.dart';
 import '../widgets/custom_text.dart';
 
@@ -20,21 +18,11 @@ class Temp1 extends GetView<SettingsServices> {
         child: Center(
           child: Column(
             children: [
-              ProductItem(
-                id:"1", imgPath: "assets/images/shoes/shoes1.jpg",productName: "prod1",price: "20"
-              ,smallPics: const ["assets/images/shoes/shoes2.png",
-                "assets/images/shoes/shoes1.jpg","assets/images/shoes/shoes1.jpg","assets/images/shoes/shoes1.jpg"],
-              description: "best",
-              rate: 4.5,),
-              ProductItem(id:"2", imgPath: "assets/images/shoes/shoes2.png",productName: "prod2",price: "18",
-                description: "crostol kolompos",
-                rate: 3.0,
-              smallPics: const ["assets/images/shoes/shoes1.jpg","assets/images/shoes/shoes2.png","assets/images/shoes/shoes3.png","assets/images/shoes/shoes2.png"],),
-              ProductItem(id:"3", imgPath: "assets/images/shoes/shoes3.png",productName: "prod3",price: "22",
-                description: "basterma beljubna",
-                rate: 2.7,
-              smallPics: const ["assets/images/shoes/shoes3.png","assets/images/shoes/shoes2.png","assets/images/shoes/shoes1.jpg","assets/images/shoes/shoes2.png"],),
 
+              ProductItem(
+                id:"5"),
+              ProductItem(id:"2"),
+              ProductItem(id:"3"),
             SizedBox(
               height: 200,
               width: 200,

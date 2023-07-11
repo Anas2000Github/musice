@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../constants.dart';
 import '../controllers/cartcontroller.dart';
+import '../mysampledata.dart';
 import '../widgets/box_of_size.dart';
 import '../widgets/custom_text.dart';
 // import '../widgets/detailsitem.dart';
@@ -13,9 +14,9 @@ import '../controllers/detailscontroller.dart';
 // import 'package:flutter_svg/svg.dart';
 
 class DetailsView extends StatelessWidget {
-  final String? id;
-  final String? imgPath;
-  final String? productName;
+  String? id;
+  String? imgPath;
+  String? productName;
   String? price;
   String? description;
   double? rate;
@@ -33,11 +34,25 @@ class DetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    for(int i=0;i<allProductsList.length;i++){
+      if(allProductsList[i]["id"]==id!){
+        productName = allProductsList[i]["productName"];
+        imgPath = allProductsList[i]["imgPath"];
+        description = allProductsList[i]["description"];
+        rate = double.parse(allProductsList[i]["rate"]);
+        price = allProductsList[i]["price"];
+        smallPics = [
+          allProductsList[i]["smallPics"][0],
+          allProductsList[i]["smallPics"][1],
+          allProductsList[i]["smallPics"][2],
+          allProductsList[i]["smallPics"][3],];
+      }
+    }
     return Scaffold(
 
       appBar: AppBar(
         centerTitle: true,
-        title:  Center(child: CustomText("Details view".tr,textAlign:TextAlign.center , color: Constants.fontBlackColor)),
+        title:  Center(child: CustomText("Details view",textAlign:TextAlign.center , color: Constants.fontBlackColor)),
         elevation: 0.0,
         backgroundColor: Constants.backGroundColor,
         leading: IconButton(onPressed: (){
@@ -52,7 +67,7 @@ class DetailsView extends StatelessWidget {
       ),
       backgroundColor: Constants.backGroundColor,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        padding: EdgeInsets.symmetric(horizontal: 10.0),
         child: Container(
           padding: const EdgeInsets.all(5.0),
           margin: const EdgeInsets.symmetric(vertical: 5) ,
@@ -65,9 +80,8 @@ class DetailsView extends StatelessWidget {
               GetBuilder(
                 init: DetailsController(),
                 builder: (detailsController) {
-                  if(detailsController.getImagePath() != "") {
+                  if(detailsController.getImagePath() != "")
                     return Image.asset(detailsController.getImagePath(),width: Get.size.width,height: 250,);
-                  }
                   return Image.asset(imgPath!,width: Get.size.width,height: 250,);
                 }
               ),
@@ -169,8 +183,7 @@ class DetailsView extends StatelessWidget {
               TextButton(
                   onPressed: () {
                     //todo: إنهاء عملية الشراء
-                    //todo:  ربط فايربيس
-                    //todo: الإنتقال إلى صفحة الدفع
+
                   },
                   child: Container(
                     width: 500,

@@ -70,7 +70,7 @@ class SearchItem extends StatelessWidget{
                 Container(
 
                   padding: const EdgeInsets.all(1.0),
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     maxHeight: 50, maxWidth: 70
                   ),
                   decoration: BoxDecoration(

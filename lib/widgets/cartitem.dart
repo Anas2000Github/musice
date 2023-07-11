@@ -5,15 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/cartcontroller.dart';
+import '../mysampledata.dart';
 
 // ignore: must_be_immutable
 class CartItemWidget extends StatelessWidget {
-  final String? id;
-  final String? imgPath;
-  final String? productName;
+  String? id;
+  String? imgPath;
+  String? productName;
   String? price;
   String? description;
   double? rate;
+  List<String>? smallPics ;
   RxInt quantity = 1.obs;
 
   // const List<CartItemWidget> cartItemWidgets ;
@@ -25,11 +27,26 @@ class CartItemWidget extends StatelessWidget {
     this.productName,
     this.price,
     this.description,
-    this.rate
+    this.rate,
+    this.smallPics
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+      for(int i=0;i<allProductsList.length;i++){
+        if(allProductsList[i]["id"]==id!){
+          productName = allProductsList[i]["productName"];
+          imgPath = allProductsList[i]["imgPath"];
+          description = allProductsList[i]["description"];
+          rate = double.parse(allProductsList[i]["rate"]);
+          price = allProductsList[i]["price"];
+          smallPics = [
+            allProductsList[i]["smallPics"][0],
+            allProductsList[i]["smallPics"][1],
+            allProductsList[i]["smallPics"][2],
+            allProductsList[i]["smallPics"][3],];
+        }
+      }
     return Container(
         margin: const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
         padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 10),
@@ -50,11 +67,13 @@ class CartItemWidget extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            if(id!.isNotEmpty)
             Image.asset(
               "$imgPath",
               width: 80,
               height: 80,
             ),
+            if(id!.isNotEmpty)
             Column(
               children: [
                 Text("$productName"),
@@ -81,6 +100,7 @@ class CartItemWidget extends StatelessWidget {
                 Text("$price")
               ],
             ),
+            if(id!.isNotEmpty)
             SizedBox(
               width: Get.size.width * .8 / 3,
               child: Column(
@@ -104,7 +124,7 @@ class CartItemWidget extends StatelessWidget {
     quantity++;
     setServ.cartController.update();
     setServ.cartController
-        .incrementTotalPrice(double.parse(price!.substring(1)));
+        .incrementTotalPrice(double.parse(price!));
     Get.put(CartController()).update();
   }
 
@@ -113,7 +133,7 @@ class CartItemWidget extends StatelessWidget {
       quantity--;
       setServ.cartController.totalPrice =
           (setServ.cartController.totalPrice.value -
-              double.parse(price!.substring(1)))
+              double.parse(price!))
               .obs;
       setServ.cartController.update();
     }

@@ -41,19 +41,8 @@ class SearchPage extends StatelessWidget {
         leadingWidth: 5.0,
         actions: [
           IconButton(onPressed: () {
-            if(setServ.cartController.items.isNotEmpty){
                   Get.to(() => CartPage());
-                }else{
-              Get.snackbar("", "Go to products page and click on a cart icon that is on every product card",
-                  backgroundColor: Colors.amber,
-                  colorText: Colors.indigo,
-                  snackStyle: SnackStyle.GROUNDED,
-                  duration: const Duration(seconds: 4),
-                  borderRadius: 15.1,
-                  borderColor: Colors.black45,
-                titleText: CustomText("No products selected")
-              );
-            }
+
               }, icon: const Icon(Icons.shopping_bag_outlined))
         ],
       ),

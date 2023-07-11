@@ -1,3 +1,4 @@
+import '../mysampledata.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -5,9 +6,9 @@ import '../main.dart';
 import '../views/details_view.dart';
 import 'cartitem.dart';
 class ProductItem extends StatelessWidget {
-  final String? id;
-  final String? imgPath;
-  final String? productName;
+  String? id;
+  String? imgPath;
+  String? productName;
   String? price;
   String? description;
   double? rate;
@@ -25,6 +26,20 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    for(int i=0;i<allProductsList.length;i++){
+      if(allProductsList[i]["id"]==id!){
+        productName = allProductsList[i]["productName"];
+        description = allProductsList[i]["description"];
+        imgPath = allProductsList[i]["imgPath"];
+        rate = double.parse(allProductsList[i]["rate"]);
+        price = allProductsList[i]["price"];
+        smallPics = [
+          allProductsList[i]["smallPics"][0],
+          allProductsList[i]["smallPics"][1],
+          allProductsList[i]["smallPics"][2],
+          allProductsList[i]["smallPics"][3],];
+      }
+    }
     return SizedBox(
       width: Get.width*.8,
       child: Card(
@@ -50,14 +65,16 @@ class ProductItem extends StatelessWidget {
                 //     "assets/images/shoes/shoes2.png",
                 //     "assets/images/shoes/shoes2.png",],),
                 // );
-                setServ.cartController.currentPrice = (double.parse(price!.substring(price!.indexOf("\$")+1))).obs;
+
+                if(id!.isNotEmpty)
+                {setServ.cartController.currentPrice = (double.parse(price!.substring(price!.indexOf("\$")+1))).obs;
                 setServ.cartController.totalPrice = (setServ.cartController.totalPrice.value + setServ.cartController.currentPrice.value).obs;
                 Get.to(()=>DetailsView(id: id!,
                   productName: productName!,
                   price: "\$${price!}",
                   imgPath: imgPath!,
                   smallPics: smallPics!),
-                );
+                );}
 
               },
               child: Image.asset(imgPath!,
@@ -65,15 +82,19 @@ class ProductItem extends StatelessWidget {
             ),
             InkWell(
               onTap: (){
-                setServ.addItemtoCart(
-                  CartItemWidget(
-                    id: id!,
-                    productName: productName!,
-                    price: "\$${price!}",
-                    imgPath:imgPath!,
-                  ),
-                );
-                Get.toNamed("/cartPage");
+                if(id!.isNotEmpty){
+                  setServ.addItemtoCart(
+                    CartItemWidget(
+                      id: id!,
+                      productName: productName!,
+                      price: "\$${price!}",
+                      imgPath: imgPath!,
+                      rate: rate!,
+                      description: description,
+                    ),
+                  );
+                  Get.toNamed("/cartPage");
+                }
               },
               child: const Padding(
                 padding: EdgeInsets.only

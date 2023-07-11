@@ -41,7 +41,7 @@ class SettingsServices extends GetxService{
     while(count>0){
 
       cartController.decrementTotalPrice(
-          double.parse(itemData.price!.substring(1)));
+          double.parse(itemData.price!));
       count--;
 
     }
