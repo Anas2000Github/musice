@@ -24,6 +24,7 @@ class SettingsServices extends GetxService{
       }
       if(itemsContainsProduct == false){
         cartController.items.add(CartItemWidget(id:id));
+        cartController.currentPrice = double.parse(CartItemWidget(id:id).price!).obs;
         cartController.incrementTotalPrice(cartController.currentPrice.value);
         cartController.update();
       }

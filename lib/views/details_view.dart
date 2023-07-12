@@ -169,6 +169,7 @@ class DetailsView extends StatelessWidget {
                   GetBuilder(
                       init: CartController(),
                       builder: (controller) {
+                        controller.currentPrice = double.parse(price!).obs;
                         return CustomText("$price");
                       }
                   )
